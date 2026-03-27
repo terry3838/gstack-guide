@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 597.0001666666667 834.5419999999999" width="597.0001666666667" height="834.5419999999999" style="--bg:#ffffff;--fg:#1f2328;--line:#d1d9e0;--accent:#0969da;--muted:#59636e">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="A" data-to="B" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="329.10125,76.9 329.10125,100.9 216.24925000000002,100.9 216.24925000000002,124.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="B" data-to="C" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="개인용" points="182.65708333333333,292.8608333333333 182.65708333333333,592.442 115.06799999999998,592.442 115.068,672.742" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="B" data-to="D" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="팀용" points="249.84141666666665,292.86083333333335 249.84141666666665,362.453 317.4305,362.453 317.4305,442.753" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="D" data-to="E" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="예" points="284.33233333333334,608.2438333333333 284.33233333333334,677.3419999999999 212.43099999999998,677.3419999999999 212.43099999999998,757.6419999999998" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="D" data-to="F" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="아니오" points="350.52866666666665,608.2438333333333 350.52866666666665,677.3419999999999 422.42999999999995,677.3419999999999 422.42999999999995,757.6419999999998" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="A" data-to="G" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="329.10125,76.9 329.10125,100.9 460.0726666666667,100.9 460.0726666666667,272.953" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="G" data-to="H" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="460.0726666666667,309.853 460.07266666666663,357.853" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="B" data-to="C" data-label="개인용">
+  <rect x="88.06799999999998" y="599.442" width="53.29" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="114.71299999999998" y="614.592" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">개인용</text>
+</g>
+<g class="edge-label" data-from="B" data-to="D" data-label="팀용">
+  <rect x="296.4305" y="369.453" width="41.41" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="317.1355" y="384.60299999999995" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">팀용</text>
+</g>
+<g class="edge-label" data-from="D" data-to="E" data-label="예">
+  <rect x="197.43099999999998" y="684.3419999999999" width="29.53" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="212.19599999999997" y="699.4919999999998" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">예</text>
+</g>
+<g class="edge-label" data-from="D" data-to="F" data-label="아니오">
+  <rect x="395.42999999999995" y="684.3419999999999" width="53.29" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="422.07499999999993" y="699.4919999999998" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">아니오</text>
+</g>
+<g class="node" data-id="A" data-label="어떻게 쓸 것인가?" data-shape="rectangle">
+  <rect x="250.32825" y="40" width="157.546" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="329.10125" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">어떻게 쓸 것인가?</text>
+</g>
+<g class="node" data-id="B" data-label="개인용인가 팀용인가" data-shape="diamond">
+  <polygon points="216.24925000000002,124.89999999999999 317.02575,225.67649999999998 216.24925000000002,326.453 115.47275000000003,225.67649999999998" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="216.24925000000002" y="225.67649999999998" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">개인용인가 팀용인가</text>
+</g>
+<g class="node" data-id="C" data-label="사용자 전역 설치" data-shape="rectangle">
+  <rect x="40" y="672.742" width="150.136" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="115.068" y="691.192" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">사용자 전역 설치</text>
+</g>
+<g class="node" data-id="D" data-label="호스트가 Claude인가" data-shape="diamond">
+  <polygon points="317.4305,442.75300000000004 416.72499999999997,542.0475 317.4305,641.342 218.13600000000002,542.0475" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="317.4305" y="542.0475" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">호스트가 Claude인가</text>
+</g>
+<g class="node" data-id="E" data-label="repo-local .claude/skills" data-shape="rectangle">
+  <rect x="121.4315" y="757.6419999999998" width="181.99899999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="212.43099999999998" y="776.0919999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">repo-local .claude/skills</text>
+</g>
+<g class="node" data-id="F" data-label="repo-local .agents/skills" data-shape="rectangle">
+  <rect x="331.4305" y="757.6419999999998" width="181.99899999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="422.42999999999995" y="776.0919999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">repo-local .agents/skills</text>
+</g>
+<g class="node" data-id="G" data-label="gstack 자체를 개발/기여" data-shape="rectangle">
+  <rect x="363.1451666666667" y="272.953" width="193.855" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="460.0726666666667" y="291.40299999999996" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">gstack 자체를 개발/기여</text>
+</g>
+<g class="node" data-id="H" data-label="dev mode" data-shape="rectangle">
+  <rect x="411.31016666666665" y="357.853" width="97.525" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="460.07266666666663" y="376.303" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">dev mode</text>
+</g>
+</svg>

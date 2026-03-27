@@ -2,6 +2,8 @@
 
 이 문서는 `gstack-guide` 자체를 검증 가능한 문서 저장소로 유지하기 위한 운영 절차를 정리합니다. 핵심 원칙은 **설치 성공 → Mermaid zero-skip 렌더 → git clean 상태 → Lore 커밋 → GitHub 공개 확인** 순서를 지키는 것입니다.
 
+`gstack-guide`도 실행 중 `.omx/` 같은 런타임 상태 파일을 만들 수 있으므로, 이런 산출물은 커밋 대상에서 제외해야 합니다.
+
 ## 로컬 빌드/검증 명령
 
 ### 원본 `gstack`에서 확인해야 할 대표 명령
@@ -42,12 +44,13 @@
 4. `npm run render:diagrams`
 5. `Skipped 0 unsupported diagrams.`를 확인한다.
 6. `git status --short --branch`로 변경 범위를 확인한다.
-7. `git add .`
-8. Lore 형식으로 커밋한다.
-9. `gh repo create terry3838/gstack-guide --public --source . --remote origin`
-10. `git push -u origin main`
-11. `gh repo view terry3838/gstack-guide --web=false`
-12. 마지막으로 `git status --short --branch`가 clean인지 재확인한다.
+7. `.omx/` 같은 런타임 상태 파일이 커밋 대상에 섞이지 않았는지 확인한다.
+8. `git add .`
+9. Lore 형식으로 커밋한다.
+10. `gh repo create terry3838/gstack-guide --public --source . --remote origin`
+11. `git push -u origin main`
+12. `gh repo view terry3838/gstack-guide --web=false`
+13. 마지막으로 `git status --short --branch`가 clean인지 재확인한다.
 
 ## Lore 커밋 확인 포인트
 
