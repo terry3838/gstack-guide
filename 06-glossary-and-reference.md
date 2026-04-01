@@ -1,63 +1,75 @@
 # 06. 용어집과 레퍼런스
 
-이 문서는 `gstack`를 읽을 때 반복적으로 등장하는 용어와, 어떤 원본 문서를 먼저 봐야 하는지 빠르게 찾도록 돕는 참조 문서입니다.
+이 문서는 최신 `gstack`를 읽을 때 반복적으로 나오는 용어와, 어떤 업스트림 문서를 먼저 봐야 하는지 빠르게 찾도록 돕는 인덱스입니다.
 
 ## 핵심 용어집
 
-- **Sprint lifecycle** — `Think → Plan → Build → Review → Test → Ship → Reflect`로 이어지는 `gstack`의 기본 작업 흐름
+- **Sprint lifecycle** — `Think → Plan → Build → Review → Test → Ship → Reflect`
 - **Skill** — 특정 역할을 수행하도록 설계된 `SKILL.md` 기반 실행 표면
-- **Generated SKILL.md** — 직접 수정 대상이 아니라 템플릿과 생성 스크립트에서 만들어지는 결과물
-- **Browse / Browser daemon** — long-lived Chromium 세션과 localhost HTTP 기반 명령 실행 구조
-- **Repo-local install** — 현재 저장소 내부 `.agents/skills/gstack` 경로에 설치하는 방식
-- **User-global install** — 사용자 홈 기준 공용 skill/runtime 루트에 설치하는 방식
-- **Lore commit** — 의도와 제약, 검증 결과를 trailer로 남기는 이 작업공간의 커밋 규약
-- **Zero-skip render gate** — Mermaid 렌더 결과에서 `Skipped 0`을 만족해야만 배포로 넘어가는 검증 규칙
+- **Generated SKILL.md** — 직접 수정 대상이 아니라 템플릿과 생성기에서 만들어지는 결과물
+- **Browse daemon** — long-lived Chromium + localhost HTTP server 구조
+- **Ref system** — `snapshot` 이후 `@e`, `@c` ref로 요소를 안정적으로 다시 찾는 방식
+- **Repo-local install** — 프로젝트 내부 `.claude/skills/gstack` 또는 `.agents/skills/gstack` 설치
+- **User-global install** — 사용자 홈 기준 공용 skill/runtime 루트 설치
+- **Real browser mode** — `$B connect` 또는 `/connect-chrome`로 실제 Chrome을 제어하는 모드
+- **Sidebar agent** — Chrome Side Panel 안에서 자연어로 브라우저 작업을 위임하는 보조 에이전트
+- **Lore commit** — 의도와 제약, 검증 결과를 trailer로 남기는 커밋 규약
+- **Opt-in telemetry** — 기본값 off, 명시 동의 시 운영 메타데이터만 수집하는 telemetry 모델
 
-## 원본 문서별 추천 용도
+## 업스트림 문서별 추천 용도
 
-- `origin/gstack/README.md` — 제품 소개, 대상 사용자, quick start, sprint 흐름
-- `origin/gstack/docs/skills.md` — 각 스킬의 철학, 예시, 상세 동작
-- `origin/gstack/ARCHITECTURE.md` — daemon 구조, ref 시스템, generated docs/test tier 설계
-- `origin/gstack/BROWSER.md` — browse 명령, connect mode, handoff, side panel 레퍼런스
-- `origin/gstack/AGENTS.md` — generated skill 계약과 빌드 명령 요약
-- `origin/gstack/package.json` — 실제 build/test/eval script 계약
+- `origin/gstack/README.md` — 제품 포지셔닝, quick start, 설치, 스프린트 흐름, power tools
+- `origin/gstack/BROWSER.md` — browse 명령, connect/handoff, extension, sidebar agent
+- `origin/gstack/ARCHITECTURE.md` — daemon, ref, 보안 모델, template system, test infrastructure
+- `origin/gstack/CONTRIBUTING.md` — dev mode, test tiers, dual-host generation, contributor workflow
+- `origin/gstack/AGENTS.md` — 현재 스킬 목록과 핵심 빌드 명령 요약
+- `origin/gstack/CHANGELOG.md` — 어떤 기능이 언제 추가/변경되었는지 확인
+- `origin/gstack/VERSION` — 현재 릴리스 사실값
+
+## 지금 특히 확인할 최신 포인트
+
+- 업스트림 버전: `0.15.1.0`
+- 지원 호스트: Claude Code, Codex, Gemini CLI, Cursor, Factory Droid
+- 최근 중요 기능: `/connect-chrome`, Side Panel extension, sidebar agent, `/document-release`, `/gstack-upgrade`, `/learn`, opt-in telemetry
+- 운영 확장: `/land-and-deploy`, `/canary`, `/benchmark`
 
 ## 자주 쓰는 확인 명령
 
 ### 가이드 저장소 검증
+
 - `npm install`
 - `npm run render:diagrams`
 - `git status --short --branch`
+- `git diff --stat`
 - `git log --oneline -1`
-- `git log -1 --format=%B`
 
-### 원본 `gstack` 구조 확인
-- `find /home/terry/guide/origin/gstack -maxdepth 2 | sort`
-- `sed -n '1,220p' /home/terry/guide/origin/gstack/README.md`
-- `sed -n '1,220p' /home/terry/guide/origin/gstack/ARCHITECTURE.md`
-- `sed -n '1,220p' /home/terry/guide/origin/gstack/docs/skills.md`
+### 업스트림 gstack 사실 확인
+
+- `cat /home/terry/guide/origin/gstack/VERSION`
+- `sed -n '1,260p' /home/terry/guide/origin/gstack/README.md`
+- `sed -n '1,260p' /home/terry/guide/origin/gstack/BROWSER.md`
+- `sed -n '1,260p' /home/terry/guide/origin/gstack/ARCHITECTURE.md`
+- `sed -n '1,260p' /home/terry/guide/origin/gstack/CONTRIBUTING.md`
+- `rg -n "connect-chrome|document-release|gstack-upgrade|learn|telemetry" /home/terry/guide/origin/gstack/README.md /home/terry/guide/origin/gstack/CHANGELOG.md`
 
 ### 공개 배포 확인
+
 - `gh auth status`
-- `gh repo view terry3838/gstack-guide --web=false`
 - `git remote -v`
+- `gh repo view <owner>/<repo> --web=false`
 
-## 텔레메트리 / 개인정보 참고
+## 읽는 순서 추천
 
-원본 README 기준으로 `gstack` 텔레메트리는 opt-in입니다.
+1. 제품 포지셔닝과 설치: `README.md`
+2. 브라우저/Chrome 협업: `BROWSER.md`
+3. 내부 구조와 문서 생성: `ARCHITECTURE.md`
+4. 개발/테스트/dual-host 생성: `CONTRIBUTING.md`
+5. 버전별 변화: `CHANGELOG.md`
 
-- 기본값은 off
-- 첫 실행 시 익명 사용 데이터 공유 여부를 묻는다
-- 코드, 프롬프트, 경로, repo 이름 같은 사용자 생성 내용은 전송 대상이 아니다
-- 원격 telemetry 없이도 로컬 analytics 흐름이 존재한다
+## 문서 통합 기준
 
-가이드 본문에서는 이 항목을 간단히 요약하되, 자세한 근거는 원본 README와 관련 migration/function 자료를 함께 가리키는 방식이 적절합니다.
-
-## 문서 통합 메모
-
-현재 통합 기준은 다음과 같습니다.
-
-- 온보딩 정보는 `README.md`와 `01/02` 계열 문서에 우선 배치
-- 기술 내부 구조는 `04-browser-and-architecture.md`에 집중
-- build/test/publication 게이트는 `05-build-test-and-publish.md`에 집중
-- 빠른 재탐색용 요약과 링크는 이 문서(`06`)에 집중
+- 온보딩과 큰 그림은 `README.md`, `01`, `02`
+- 역할별 스킬 지도는 `03`
+- 브라우저와 내부 구조는 `04`
+- 가이드 저장소 운영과 공개 검증은 `05`
+- 빠른 재탐색용 요약은 이 문서 `06`

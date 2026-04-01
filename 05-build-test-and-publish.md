@@ -1,75 +1,97 @@
 # 05. 빌드, 테스트, 공개 배포
 
-이 문서는 `gstack-guide` 자체를 검증 가능한 문서 저장소로 유지하기 위한 운영 절차를 정리합니다. 핵심 원칙은 **설치 성공 → Mermaid zero-skip 렌더 → git clean 상태 → Lore 커밋 → GitHub 공개 확인** 순서를 지키는 것입니다.
+이 문서는 `gstack-guide` 자체를 최신 업스트림에 맞춰 유지하고 공개 가능한 문서 저장소로 검증하는 절차를 정리합니다. 핵심은 **사실값 확인 → 다이어그램 렌더 → 변경 범위 점검 → 커밋 규약 준수 → 공개 검증** 순서를 지키는 것입니다.
 
-`gstack-guide`도 실행 중 `.omx/` 같은 런타임 상태 파일을 만들 수 있으므로, 이런 산출물은 커밋 대상에서 제외해야 합니다.
+## 먼저 확인할 업스트림 사실값
 
-## 로컬 빌드/검증 명령
+문서를 갱신하기 전에 최소한 아래는 다시 확인합니다.
 
-### 원본 `gstack`에서 확인해야 할 대표 명령
+- `VERSION`
+- `README.md`
+- `BROWSER.md`
+- `ARCHITECTURE.md`
+- `CONTRIBUTING.md`
+- `CHANGELOG.md`
 
-- `bun install` — 의존성 설치
-- `bun test` — 기본 테스트 스위트
-- `bun run build` — skill docs 재생성 + browse binary 빌드
-- `bun run gen:skill-docs` — generated SKILL.md 재생성
-- `bun run skill:check` — 스킬 상태 점검
+현재 갱신 기준 업스트림 버전은 `0.15.1.0`입니다.
 
-### 이 가이드 저장소에서 반드시 확인할 명령
+## 업스트림 gstack에서 자주 확인할 명령
+
+- `bun install`
+- `bun test`
+- `bun run build`
+- `bun run gen:skill-docs`
+- `bun run gen:skill-docs --host codex`
+- `bun run skill:check`
+- `bun run test:e2e`
+- `bun run test:evals`
+
+가이드 저장소는 Bun 프로젝트가 아니므로 이 명령들은 설명 대상이지 이 저장소 자체의 실행 대상은 아닙니다.
+
+## 이 가이드 저장소에서 반드시 확인할 명령
 
 - `npm install`
 - `npm run render:diagrams`
 - `git status --short --branch`
+- `git diff --stat`
 - `git log --oneline -1`
 - `git log -1 --format=%B`
 
+또한 `.omx/` 같은 런타임 상태 파일이 커밋 대상에서 제외되는지 확인해야 합니다.
+
 ## Mermaid 렌더 계약
 
-이 저장소는 `package.json`의 `render:diagrams` 스크립트와 `tools/render_diagrams.mjs`를 통해 Markdown 내부의 Mermaid 블록을 SVG로 변환합니다.
+이 저장소는 `render:diagrams` 스크립트와 `tools/render_diagrams.mjs`를 통해 Markdown 안 Mermaid 블록을 SVG로 변환합니다.
 
-검증 레인에서 정리한 핵심 게이트는 다음과 같습니다.
+검증 게이트는 다음과 같습니다.
 
-1. 렌더 전에 Mermaid fenced block이 실제로 존재하는지 확인한다.
-2. `npm run render:diagrams`가 성공해야 한다.
-3. 출력 로그의 `Skipped 0 unsupported diagrams.`를 확인한다.
-4. `assets/diagrams/*.svg`가 생성되었는지 확인한다.
-5. Markdown이 `![Diagram N](...)` 링크로 바뀌었는지 확인한다.
+1. 렌더 전에 Mermaid fenced block이 실제로 존재하는지 확인
+2. `npm run render:diagrams` 성공
+3. 로그에서 `Skipped 0 unsupported diagrams.` 확인
+4. `assets/diagrams/*.svg` 생성 확인
+5. Markdown이 `![Diagram N](...)` 링크를 가리키는지 점검
 
-> 주의: 이 렌더러는 성공한 Mermaid 블록을 이미지 링크로 대체합니다. 즉, 렌더는 사실상 작성 단계의 마지막 게이트로 취급해야 합니다.
+즉 렌더는 문서 작성의 마지막 단계에 가깝습니다.
 
-## 공개 배포 런북
+## 문서 갱신 런북
 
-1. `cd /home/terry/guide/gstack-guide`
-2. 문서와 렌더링 도구를 준비한다.
+1. 업스트림 `VERSION`, `README`, `BROWSER`, `ARCHITECTURE`, `CONTRIBUTING`, `CHANGELOG`를 읽는다.
+2. 가이드 문서에서 stale statement를 수정한다.
 3. `npm install`
 4. `npm run render:diagrams`
-5. `Skipped 0 unsupported diagrams.`를 확인한다.
-6. `git status --short --branch`로 변경 범위를 확인한다.
-7. `.omx/` 같은 런타임 상태 파일이 커밋 대상에 섞이지 않았는지 확인한다.
-8. `git add .`
-9. Lore 형식으로 커밋한다.
-10. `gh repo create terry3838/gstack-guide --public --source . --remote origin`
-11. `git push -u origin main`
-12. `gh repo view terry3838/gstack-guide --web=false`
-13. 마지막으로 `git status --short --branch`가 clean인지 재확인한다.
+5. `git status --short --branch`
+6. `git diff --stat`
+7. `.omx/` 등 런타임 산출물이 커밋 대상에 섞이지 않았는지 확인
+8. Lore 형식으로 커밋
+9. 원격 저장소에 push
+10. GitHub에서 공개 상태와 기본 브랜치를 확인
 
 ## Lore 커밋 확인 포인트
 
-최초 공개 커밋과 이후 문서 릴리스 커밋 모두 다음을 충족해야 합니다.
+이 작업공간의 커밋 메시지는 Lore protocol을 따릅니다.
 
-- 첫 줄은 **왜** 이 변경이 필요한지 설명한다.
-- 본문 뒤에 빈 줄을 두고 trailer를 추가한다.
-- 최소한 `Constraint`, `Confidence`, `Scope-risk`, `Tested`/`Not-tested` 중 필요한 항목을 남긴다.
-- diagram이나 publication 관련 작업이면 `Directive`나 `Rejected`로 향후 주의사항을 남긴다.
+- 첫 줄은 **왜** 이 변경이 필요한지 적는다
+- 본문 뒤 빈 줄 다음에 trailer를 추가한다
+- 문서 릴리스라면 `Constraint`, `Confidence`, `Scope-risk`, `Tested`, `Not-tested`를 우선 고려한다
+- 향후 드리프트 방지 포인트가 있으면 `Directive`를 남긴다
 
-## 최종 증빙 번들
+## 공개 검증 체크리스트
 
-배포 전/후 보고에는 가능하면 아래를 함께 남깁니다.
+- `git status --short --branch`가 예상 범위만 보여주는가
+- 최신 가이드가 업스트림 버전과 핵심 기능을 잘 반영하는가
+- 다이어그램 링크가 깨지지 않았는가
+- README와 개별 챕터가 서로 모순되지 않는가
+- 공개 저장소의 기본 브랜치와 remote가 올바른가
 
-- `find /home/terry/guide/gstack-guide -maxdepth 3 | sort`
-- `npm install` 요약 출력
-- `npm run render:diagrams` 출력
+## 남겨두면 좋은 증빙
+
+- `cat /home/terry/guide/origin/gstack/VERSION`
+- `git diff --stat`
+- `npm run render:diagrams`
 - `git status --short --branch`
 - `git log --oneline -1`
 - `git log -1 --format=%B`
 - `git remote -v`
-- `gh repo view terry3838/gstack-guide --web=false`
+- `gh repo view <owner>/<repo> --web=false`
+
+이 문서는 가이드 저장소 운영 절차를 다룹니다. 빠른 재탐색용 용어와 업스트림 참조 위치는 [06-glossary-and-reference.md](06-glossary-and-reference.md)에서 정리합니다.

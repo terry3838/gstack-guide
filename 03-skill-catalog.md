@@ -1,63 +1,78 @@
 # 03. 스킬 카탈로그
 
-`gstack`의 스킬은 많아 보이지만, 실제로는 몇 개의 역할군으로 기억하면 훨씬 관리하기 쉽습니다. 이 문서는 원본 README와 `docs/skills.md`의 설명을 바탕으로 스킬을 **언제 쓰는지** 중심으로 다시 묶어 보여줍니다.
+최신 `gstack`는 스킬 수가 많습니다. 하지만 운영 감각은 "전부 외우기"보다 역할군으로 묶을 때 생깁니다. 이 문서는 업스트림 README, AGENTS, CONTRIBUTING, CHANGELOG를 바탕으로 스킬을 **언제 쓰는지** 기준으로 재분류합니다.
 
 ## 전체 지도
 
 ![Diagram 1](assets/diagrams/03-skill-catalog__diagram_1.svg)
 
-## 1. 핵심 워크플로우 스킬
+## 1. 핵심 스프린트 레인
 
 | 스킬 | 언제 쓰나 | 핵심 역할 |
 |---|---|---|
-| `/office-hours` | 아이디어가 아직 제품 언어로 정리되지 않았을 때 | 문제를 재정의하고 design doc의 출발점을 만든다 |
-| `/plan-ceo-review` | scope와 제품 방향을 다시 묻고 싶을 때 | 더 큰 제품 기회를 찾거나 범위를 줄인다 |
-| `/plan-eng-review` | build 가능한 설계와 테스트 계획이 필요할 때 | 아키텍처, 경계 조건, failure mode, test matrix를 고정한다 |
-| `/plan-design-review` | 구현 전에 디자인 결정을 비워두고 싶지 않을 때 | information architecture, state coverage, AI slop risk를 계획 단계에서 채운다 |
-| `/autoplan` | 계획 리뷰를 한 번에 자동 파이프라인으로 돌리고 싶을 때 | CEO → design → eng review를 묶어 reviewed plan을 빠르게 만든다 |
-| `/review` | 코드가 돌아가지만 production risk가 찜찜할 때 | race, trust boundary, N+1, 누락된 handler 같은 구조적 문제를 찾는다 |
-| `/qa` | 실제 브라우저에서 기능을 검증하고 싶을 때 | diff-aware QA, bug reproduction, 회귀 테스트 생성 |
-| `/ship` | branch를 PR/릴리스 단위로 정리할 때 | 테스트, 커버리지, PR 생성을 묶는다 |
-| `/retro` | 주기 종료 후 개선 포인트를 정리할 때 | 팀/프로젝트 수준 회고 |
+| `/office-hours` | 아이디어가 아직 제품 언어로 정리되지 않았을 때 | 문제를 재정의하고 design doc 출발점을 만든다 |
+| `/plan-ceo-review` | scope와 제품 방향을 다시 묻고 싶을 때 | 더 큰 기회를 찾거나 범위를 줄인다 |
+| `/plan-eng-review` | build 가능한 설계와 테스트 계획이 필요할 때 | 아키텍처, failure mode, test matrix를 잠근다 |
+| `/plan-design-review` | 구현 전에 UX와 상태 설계를 비워두고 싶지 않을 때 | 디자인 품질과 상태 커버리지를 미리 점검한다 |
+| `/autoplan` | 계획 리뷰를 한 번에 자동 파이프라인으로 돌리고 싶을 때 | CEO → design → eng review를 자동으로 연결한다 |
+| `/review` | 코드가 돌아가지만 production risk가 남아 있을 때 | 구조적 결함과 운영 리스크를 찾는다 |
+| `/qa` | 실제 브라우저에서 검증하고 싶을 때 | bug reproduction, fix, regression까지 이어간다 |
+| `/ship` | branch를 PR/릴리스 단위로 묶을 때 | 테스트, PR, 문서/릴리스 루틴을 연결한다 |
+| `/retro` | 한 주기 후 회고가 필요할 때 | 팀/프로젝트 단위 개선 포인트를 남긴다 |
 
-## 2. 설계와 디자인 확장 스킬
+## 2. 디자인과 제품 확장 레인
 
 | 스킬 | 역할 |
 |---|---|
-| `/plan-design-review` | 구현 전 디자인 QA |
-| `/design-consultation` | 디자인 시스템을 처음부터 같이 만드는 모드 |
-| `/design-review` | 구현 후 실제 화면을 감사하고 바로 수정하는 모드 |
+| `/design-consultation` | 디자인 시스템을 처음부터 만들 때 |
+| `/design-shotgun` | 여러 시안을 빠르게 비교하고 싶을 때 |
+| `/design-html` | 승인된 시안을 실제 반응형 HTML로 옮길 때 |
+| `/design-review` | 구현 후 시각 품질을 감사하고 고칠 때 |
 
-이 세 개는 모두 디자인을 다루지만, 타이밍이 다릅니다.
+타이밍 차이로 기억하면 쉽습니다.
 
+- `design-consultation`: 디자인 시스템이 없을 때
 - `plan-design-review`: 구현 전
-- `design-consultation`: 설계 전, 디자인 시스템이 아예 없을 때
-- `design-review`: 구현 후, 실제 사이트 감사
+- `design-shotgun` / `design-html`: 방향 선택과 구체화
+- `design-review`: 구현 후
 
-## 3. 브라우저 / QA 계열 스킬
+## 3. 브라우저 / QA / 실사용 레인
 
 | 스킬 | 역할 |
 |---|---|
 | `/browse` | 저수준 브라우저 조작 계층 |
-| `/setup-browser-cookies` | 실사용 브라우저 세션을 headless/real browser에 옮길 때 |
-| `/qa` | 브라우저를 이용한 체계적 QA |
-| `/qa-only` | 수정 없이 버그 리포트만 만들고 싶을 때 |
+| `/connect-chrome` | 실제 Chrome과 Side Panel을 연결하는 제어 레인 |
+| `/setup-browser-cookies` | 실사용 브라우저 세션을 이관할 때 |
+| `/qa` | 브라우저 기반 test-fix-verify 루프 |
+| `/qa-only` | 수정 없이 버그 리포트만 만들 때 |
 
-`/browse`는 "명령 집합"이고, `/qa`는 "방법론"입니다. 직접 페이지를 누르고 읽고 싶으면 `/browse`, 테스트 계획과 버그 수집까지 묶고 싶으면 `/qa`라고 이해하면 쉽습니다.
+최신 `gstack`에서 `/browse`는 단순 headless command set이 아닙니다. connect mode, handoff/resume, extension, sidebar agent와 함께 읽어야 전체 가치가 보입니다.
 
-## 4. 조사 / 보안 / 성능 / 릴리스 보조 스킬
+## 4. 릴리스 / 운영 / 성능 레인
 
 | 스킬 | 역할 |
 |---|---|
-| `/investigate` | 근본 원인 분석, 추측 금지 디버깅 |
-| `/cso` | OWASP + STRIDE 중심 보안 리뷰 |
-| `/benchmark` | page load, Core Web Vitals, 리소스 비교 |
+| `/land-and-deploy` | merge 이후 배포와 운영 확인 |
+| `/canary` | 배포 후 모니터링 |
+| `/benchmark` | 성능 baseline과 before/after 비교 |
 | `/document-release` | 릴리스 후 문서 드리프트 정리 |
-| `/land-and-deploy` | PR merge 이후 배포 및 운영 확인 |
-| `/canary` | 배포 후 모니터링 루프 |
-| `/codex` | 다른 모델 관점의 독립 리뷰 |
+| `/setup-deploy` | `/land-and-deploy` 전 환경 준비 |
+| `/gstack-upgrade` | 글로벌/벤더드 설치 최신화 |
 
-## 5. 안전 장치와 유틸리티
+특히 `/document-release`와 `/gstack-upgrade`는 예전 가이드에서 빠지기 쉬웠지만, 최신 릴리스에서는 실제 운영 루프의 중요한 일부입니다.
+
+## 5. 조사 / 보안 / 보조 레인
+
+| 스킬 | 역할 |
+|---|---|
+| `/investigate` | 추측 없는 root-cause debugging |
+| `/cso` | OWASP + STRIDE 중심 보안 감사 |
+| `/codex` | OpenAI Codex CLI 기반 second opinion |
+| `/learn` | 세션 간 운영 학습 확인/관리 |
+
+`/codex`는 "다른 모델로 한 번 더 본다"는 점에서 리뷰 품질을 다층화합니다. `/learn`은 운영 실수를 누적 자산으로 바꾸는 최근 흐름입니다.
+
+## 6. 안전 장치
 
 | 스킬 | 언제 쓰나 |
 |---|---|
@@ -65,12 +80,12 @@
 | `/freeze` | 특정 디렉터리 밖 수정 금지가 필요할 때 |
 | `/guard` | 경고와 수정 경계를 동시에 걸고 싶을 때 |
 | `/unfreeze` | 잠금을 해제할 때 |
-| `/setup-deploy` | `/land-and-deploy` 전에 배포 환경을 정리할 때 |
-| `/gstack-upgrade` | 글로벌/벤더드 설치를 최신으로 맞출 때 |
 
-## 6. 어떤 스킬부터 기억하면 되나
+Claude 호스트에서는 hook 기반 enforcement가 강하고, 비-Claude 호스트에서는 advisory prose 중심으로 약간 다르게 동작합니다.
 
-처음에는 아래 6개만 제대로 기억해도 충분합니다.
+## 7. 처음엔 무엇만 기억하면 되나
+
+처음에는 아래 8개만 알아도 충분합니다.
 
 1. `/office-hours`
 2. `/plan-ceo-review`
@@ -78,40 +93,19 @@
 4. `/review`
 5. `/qa`
 6. `/ship`
+7. `/connect-chrome`
+8. `/gstack-upgrade`
 
-계획 리뷰를 한 번에 돌리고 싶다면 여기 위에 `/autoplan`을 얹으면 됩니다. 문제가 생겼을 때는 `/investigate`, 직접 브라우저를 만질 때는 `/browse`, 화면 품질을 볼 때는 `/design-review`, 안전 경계가 필요할 때는 `/guard`를 붙이면 됩니다.
+여기에 상황별로 `/autoplan`, `/codex`, `/document-release`, `/learn`, `/land-and-deploy`를 얹으면 최신 릴리스의 핵심 흐름을 거의 다 다룹니다.
 
-## 7. generated SKILL.md를 이해해야 하는 이유
+## 8. generated SKILL.md를 왜 이해해야 하나
 
-원본 `AGENTS.md`와 `CONTRIBUTING.md`가 반복해서 강조하는 것처럼, 많은 `SKILL.md`는 템플릿과 생성 스크립트에서 만들어집니다. 즉:
+업스트림 AGENTS와 CONTRIBUTING가 계속 강조하는 규칙은 같습니다.
 
-- 직접 편집 대상이 아니다
-- `.tmpl`이나 생성기 로직이 source of truth다
-- command/flag 문서가 실제 코드와 드리프트하지 않게 설계돼 있다
+- `SKILL.md`는 자주 generated artifact다
+- 직접 편집 대상은 템플릿과 생성기다
+- Claude용과 Codex용 출력이 동시에 관리된다
 
-이 사실을 모르면 "문서만 고치면 되겠지"라고 생각하기 쉽습니다. 하지만 `gstack`는 문서 자체도 runtime contract의 일부라서, generated 구조를 이해하는 것이 중요합니다.
+즉 문서와 코드는 분리돼 있지 않습니다. 명령 계약이 바뀌면 generated docs도 같이 갱신해야 합니다.
 
-## 8. 역할별 추천 조합
-
-### 창업자 / PM
-- `/office-hours`
-- `/plan-ceo-review`
-- `/plan-eng-review`
-
-### 구현자 / 리드 엔지니어
-- `/review`
-- `/investigate`
-- `/ship`
-
-### QA / 디자이너
-- `/browse`
-- `/qa`
-- `/design-review`
-
-### 운영 / 릴리스
-- `/benchmark`
-- `/land-and-deploy`
-- `/canary`
-- `/document-release`
-
-다음 문서에서는 이 스킬들이 왜 이런 방식으로 동작하는지, 특히 브라우저 daemon과 generated 문서 시스템의 내부 구조를 설명합니다. [04-browser-and-architecture.md](04-browser-and-architecture.md)를 읽으세요.
+다음 문서에서는 이 스킬들이 왜 이런 구조로 동작하는지, 특히 브라우저 daemon과 generated docs 시스템을 설명합니다. [04-browser-and-architecture.md](04-browser-and-architecture.md)를 읽으세요.
