@@ -11,6 +11,17 @@
 
 > "I don't think I've typed like a line of code probably since December, basically, which is an extremely large change." — [Andrej Karpathy](https://fortune.com/2026/03/21/andrej-karpathy-openai-cofounder-ai-agents-coding-state-of-psychosis-openclaw/), No Priors podcast, March 2026
 
+## recent upstream commits
+
+- `6169273 feat: /design-html works from any starting point (v0.15.1.0) (#734)`
+- `562a675 feat: Session Intelligence Layer — /checkpoint + /health + context recovery (v0.15.0.0) (#733)`
+- `8115951 feat: recursive self-improvement — operational learning + full skill wiring (v0.13.8.0) (#647)`
+- `db35b8e feat: session intelligence roadmap + design doc (#727)`
+- `7ea6ead fix: ship idempotency + skill prefix name patching (v0.14.3.0) (#693)`
+- `a4a181c feat: Review Army — parallel specialist reviewers for /review (v0.14.3.0) (#692)`
+- `a0328be feat: always-on adversarial review + scope drift + plan mode design tools (v0.14.3.0) (#694)`
+- `a1a9336 feat: sidebar CSS inspector + per-tab agents (v0.13.9.0) (#650)`
+
 ## top-level structure
 
 - `.env.example`
