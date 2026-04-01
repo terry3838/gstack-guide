@@ -1,7 +1,10 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- synced commit: `6169273d16b7ab8690943241fa802e5a1ca85305`
+- previous synced commit: `6169273d16b7ab8690943241fa802e5a1ca85305`
+- current synced commit: `6169273d16b7ab8690943241fa802e5a1ca85305`
+- sync mode: `no-change`
+- impact labels: 일반 변경
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -30,6 +33,10 @@
 - `conductor.json`
 - `connect-chrome/`
 - `CONTRIBUTING.md`
+
+## changed files
+
+- 변경 파일 없음
 
 ## README excerpt
 
@@ -114,4 +121,44 @@ Install once for your user account:
 git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
 cd ~/gstack && ./setup --host codex
 ```
+
+`setup --host codex` creates the runtime root at `~/.codex/skills/gstack` and
+links the generated Codex skills at the top level. This avoids duplicate skill
+discovery from the source repo checkout.
+
+Or let setup auto-detect which agents you have installed:
+
+```bash
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
+cd ~/gstack && ./setup --host auto
+```
+
+For Codex-compatible hosts, setup now supports both repo-local installs from `.agents/skills/gstack` and user-global installs from `~/.codex/skills/gstack`. All 31 skills work across all supported agents. Hook-based safety skills (careful, freeze, guard) use inline safety advisory prose on non-Claude hosts.
+
+### Factory Droid
+
+gstack works with [Factory Droid](https://factory.ai). Skills install to `.factory/skills/` and are discovered automatically. Sensitive skills (ship, land-and-deploy, guard) use `disable-model-invocation: true` so Droids don't auto-invoke them.
+
+```bash
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
+cd ~/gstack && ./setup --host factory
+```
+
+Skills install to `~/.factory/skills/gstack-*/`. Restart `droid` to rescan skills, then type `/qa` to get started.
+
+## See it work
+
+```
+You:    I want to build a daily briefing app for my calendar.
+You:    /office-hours
+Claude: [asks about the pain — specific examples, not hypotheticals]
+
+You:    Multiple Google calendars, events with stale info, wrong locations.
+        Prep takes forever and the results aren't good enough...
+
+Claude: I'm going to push back on the framing. You said "daily briefing
+        app." But what you actually described is a personal chief of
+        staff AI.
+        [extracts 5 capabilities you didn't realize you were describing]
+        [challenges 4 premises — you agree, disagree, or adjust]
 ```
