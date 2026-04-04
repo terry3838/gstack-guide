@@ -2,9 +2,9 @@
 
 - source repo: `https://github.com/garrytan/gstack.git`
 - previous synced commit: `6169273d16b7ab8690943241fa802e5a1ca85305`
-- current synced commit: `6169273d16b7ab8690943241fa802e5a1ca85305`
-- sync mode: `no-change`
-- impact labels: 일반 변경
+- current synced commit: `be96ff5ce771f67d4502ea4b2fbbcba53654cdcf`
+- sync mode: `update`
+- impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,14 +13,11 @@
 
 ## recent upstream commits
 
-- `6169273 feat: /design-html works from any starting point (v0.15.1.0) (#734)`
-- `562a675 feat: Session Intelligence Layer — /checkpoint + /health + context recovery (v0.15.0.0) (#733)`
-- `8115951 feat: recursive self-improvement — operational learning + full skill wiring (v0.13.8.0) (#647)`
-- `db35b8e feat: session intelligence roadmap + design doc (#727)`
-- `7ea6ead fix: ship idempotency + skill prefix name patching (v0.14.3.0) (#693)`
-- `a4a181c feat: Review Army — parallel specialist reviewers for /review (v0.14.3.0) (#692)`
-- `a0328be feat: always-on adversarial review + scope drift + plan mode design tools (v0.14.3.0) (#694)`
-- `a1a9336 feat: sidebar CSS inspector + per-tab agents (v0.13.9.0) (#650)`
+- `be96ff5 feat: /plan-devex-review + /devex-review — DX review skills (v0.15.3.0) (#784)`
+- `103a1b3 docs: Slate agent integration research + design doc (#782)`
+- `c620de3 fix: setup runs pending migrations so git pull + ./setup works (#774)`
+- `846269e feat: voice-friendly skill triggers for AquaVoice (v0.14.6.0) (#732)`
+- `4fc64f7 fix: top-level skill dirs so Claude discovers unprefixed names (#761)`
 
 ## top-level structure
 
@@ -47,7 +44,26 @@
 
 ## changed files
 
-- 변경 파일 없음
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `CONTRIBUTING.md`
+- `README.md`
+- `SKILL.md`
+- `VERSION`
+- `autoplan/SKILL.md`
+- `autoplan/SKILL.md.tmpl`
+- `benchmark/SKILL.md`
+- `benchmark/SKILL.md.tmpl`
+- `bin/gstack-relink`
+- `browse/SKILL.md`
+- `canary/SKILL.md`
+- `checkpoint/SKILL.md`
+- `codex/SKILL.md`
+- `codex/SKILL.md.tmpl`
+- `connect-chrome/SKILL.md`
+- `connect-chrome/SKILL.md.tmpl`
+- `cso/SKILL.md`
+- `cso/SKILL.md.tmpl`
 
 ## README excerpt
 
@@ -157,6 +173,12 @@ cd ~/gstack && ./setup --host factory
 
 Skills install to `~/.factory/skills/gstack-*/`. Restart `droid` to rescan skills, then type `/qa` to get started.
 
+### Voice input (AquaVoice, Whisper, etc.)
+
+gstack skills have voice-friendly trigger phrases. Say what you want naturally —
+"run a security check", "test the website", "do an engineering review" — and the
+right skill activates. You don't need to remember slash command names or acronyms.
+
 ## See it work
 
 ```
@@ -166,10 +188,4 @@ Claude: [asks about the pain — specific examples, not hypotheticals]
 
 You:    Multiple Google calendars, events with stale info, wrong locations.
         Prep takes forever and the results aren't good enough...
-
-Claude: I'm going to push back on the framing. You said "daily briefing
-        app." But what you actually described is a personal chief of
-        staff AI.
-        [extracts 5 capabilities you didn't realize you were describing]
-        [challenges 4 premises — you agree, disagree, or adjust]
 ```

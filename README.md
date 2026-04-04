@@ -65,26 +65,44 @@
 ## 자동 동기화 상태
 
 - origin repo: `gstack`
-- latest source commit: `6169273d16b7`
-- sync mode: `no-change`
-- 영향 분류: 일반 변경
+- latest source commit: `be96ff5ce771`
+- sync mode: `update`
+- 영향 분류: README/소개, 설치/설정, CLI/명령어, 문서 구조
 
 ### 이번 반영 포인트
 
-이번 싸이클에서는 origin 변경이 없어 guide 본문은 유지했고, 동기화 기준점만 재확인했습니다.
+origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: README/소개, 설치/설정, CLI/명령어, 문서 구조.
 
 ### 최근 upstream 커밋
 
-- `6169273 feat: /design-html works from any starting point (v0.15.1.0) (#734)`
-- `562a675 feat: Session Intelligence Layer — /checkpoint + /health + context recovery (v0.15.0.0) (#733)`
-- `8115951 feat: recursive self-improvement — operational learning + full skill wiring (v0.13.8.0) (#647)`
-- `db35b8e feat: session intelligence roadmap + design doc (#727)`
-- `7ea6ead fix: ship idempotency + skill prefix name patching (v0.14.3.0) (#693)`
-- `a4a181c feat: Review Army — parallel specialist reviewers for /review (v0.14.3.0) (#692)`
+- `be96ff5 feat: /plan-devex-review + /devex-review — DX review skills (v0.15.3.0) (#784)`
+- `103a1b3 docs: Slate agent integration research + design doc (#782)`
+- `c620de3 fix: setup runs pending migrations so git pull + ./setup works (#774)`
+- `846269e feat: voice-friendly skill triggers for AquaVoice (v0.14.6.0) (#732)`
+- `4fc64f7 fix: top-level skill dirs so Claude discovers unprefixed names (#761)`
 
 ### 변경 파일 샘플
 
-- 이번 싸이클에서는 신규 변경 파일이 없습니다.
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `CONTRIBUTING.md`
+- `README.md`
+- `SKILL.md`
+- `VERSION`
+- `autoplan/SKILL.md`
+- `autoplan/SKILL.md.tmpl`
+- `benchmark/SKILL.md`
+- `benchmark/SKILL.md.tmpl`
+- `bin/gstack-relink`
+- `browse/SKILL.md`
+- `canary/SKILL.md`
+- `checkpoint/SKILL.md`
+- `codex/SKILL.md`
+- `codex/SKILL.md.tmpl`
+- `connect-chrome/SKILL.md`
+- `connect-chrome/SKILL.md.tmpl`
+- `cso/SKILL.md`
+- `cso/SKILL.md.tmpl`
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->
