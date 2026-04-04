@@ -45,12 +45,12 @@
 
 ### 업스트림 gstack 사실 확인
 
-- `cat /home/terry/guide/origin/gstack/VERSION`
-- `sed -n '1,260p' /home/terry/guide/origin/gstack/README.md`
-- `sed -n '1,260p' /home/terry/guide/origin/gstack/BROWSER.md`
-- `sed -n '1,260p' /home/terry/guide/origin/gstack/ARCHITECTURE.md`
-- `sed -n '1,260p' /home/terry/guide/origin/gstack/CONTRIBUTING.md`
-- `rg -n "connect-chrome|document-release|gstack-upgrade|learn|telemetry" /home/terry/guide/origin/gstack/README.md /home/terry/guide/origin/gstack/CHANGELOG.md`
+- `cat "$UPSTREAM_GSTACK_ROOT/VERSION"`
+- `sed -n '1,260p' "$UPSTREAM_GSTACK_ROOT/README.md"`
+- `sed -n '1,260p' "$UPSTREAM_GSTACK_ROOT/BROWSER.md"`
+- `sed -n '1,260p' "$UPSTREAM_GSTACK_ROOT/ARCHITECTURE.md"`
+- `sed -n '1,260p' "$UPSTREAM_GSTACK_ROOT/CONTRIBUTING.md"`
+- `rg -n "connect-chrome|document-release|gstack-upgrade|learn|telemetry" "$UPSTREAM_GSTACK_ROOT/README.md" "$UPSTREAM_GSTACK_ROOT/CHANGELOG.md"`
 
 ### 공개 배포 확인
 

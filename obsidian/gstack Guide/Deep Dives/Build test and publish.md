@@ -100,7 +100,7 @@
 
 ## 남겨두면 좋은 증빙
 
-- `cat /home/terry/guide/origin/gstack/VERSION`
+- `cat "$UPSTREAM_GSTACK_ROOT/VERSION"`
 - `git diff --stat`
 - `npm run render:diagrams`
 - `git status --short --branch`
