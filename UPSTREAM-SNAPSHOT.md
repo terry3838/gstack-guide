@@ -1,10 +1,10 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `6169273d16b7ab8690943241fa802e5a1ca85305`
-- current synced commit: `be96ff5ce771f67d4502ea4b2fbbcba53654cdcf`
+- previous synced commit: `be96ff5ce771f67d4502ea4b2fbbcba53654cdcf`
+- current synced commit: `04b709d91a3f10efa1c816c6ddb4c8cafa735da8`
 - sync mode: `update`
-- impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조
+- impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,11 +13,10 @@
 
 ## recent upstream commits
 
-- `be96ff5 feat: /plan-devex-review + /devex-review — DX review skills (v0.15.3.0) (#784)`
-- `103a1b3 docs: Slate agent integration research + design doc (#782)`
-- `c620de3 fix: setup runs pending migrations so git pull + ./setup works (#774)`
-- `846269e feat: voice-friendly skill triggers for AquaVoice (v0.14.6.0) (#732)`
-- `4fc64f7 fix: top-level skill dirs so Claude discovers unprefixed names (#761)`
+- `04b709d feat: declarative multi-host platform + OpenCode, Slate, Cursor, OpenClaw (v0.15.5.0) (#793)`
+- `4478514 feat: interactive /plan-devex-review + plan mode skill fix (v0.15.5.0) (#796)`
+- `3f080de feat: GStack Browser — double-click AI browser with anti-bot stealth (#695)`
+- `cf73db5 feat: autoplan DX integration + README docs (v0.15.4.0) (#791)`
 
 ## top-level structure
 
@@ -40,30 +39,30 @@
 - `codex/`
 - `conductor.json`
 - `connect-chrome/`
-- `CONTRIBUTING.md`
+- `contrib/`
 
 ## changed files
 
+- `.gitignore`
 - `CHANGELOG.md`
 - `CLAUDE.md`
 - `CONTRIBUTING.md`
 - `README.md`
 - `SKILL.md`
+- `TODOS.md`
 - `VERSION`
 - `autoplan/SKILL.md`
 - `autoplan/SKILL.md.tmpl`
 - `benchmark/SKILL.md`
-- `benchmark/SKILL.md.tmpl`
-- `bin/gstack-relink`
+- `bin/gstack-platform-detect`
 - `browse/SKILL.md`
-- `canary/SKILL.md`
-- `checkpoint/SKILL.md`
-- `codex/SKILL.md`
-- `codex/SKILL.md.tmpl`
-- `connect-chrome/SKILL.md`
-- `connect-chrome/SKILL.md.tmpl`
-- `cso/SKILL.md`
-- `cso/SKILL.md.tmpl`
+- `browse/src/browser-manager.ts`
+- `browse/src/cli.ts`
+- `browse/src/cookie-picker-ui.ts`
+- `browse/src/server.ts`
+- `browse/src/sidebar-agent.ts`
+- `browse/src/welcome.html`
+- `browse/test/server-auth.test.ts`
 
 ## README excerpt
 
@@ -116,11 +115,11 @@ Fork it. Improve it. Make it yours. And if you want to hate on free open source 
 
 Open Claude Code and paste this. Claude does the rest.
 
-> Install gstack: run **`git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup`** then add a "gstack" section to CLAUDE.md that says to use the /browse skill from gstack for all web browsing, never use mcp\_\_claude-in-chrome\_\_\* tools, and lists the available skills: /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /design-consultation, /design-shotgun, /design-html, /review, /ship, /land-and-deploy, /canary, /benchmark, /browse, /connect-chrome, /qa, /qa-only, /design-review, /setup-browser-cookies, /setup-deploy, /retro, /investigate, /document-release, /codex, /cso, /autoplan, /careful, /freeze, /guard, /unfreeze, /gstack-upgrade, /learn. Then ask the user if they also want to add gstack to the current project so teammates get it.
+> Install gstack: run **`git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup`** then add a "gstack" section to CLAUDE.md that says to use the /browse skill from gstack for all web browsing, never use mcp\_\_claude-in-chrome\_\_\* tools, and lists the available skills: /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /design-consultation, /design-shotgun, /design-html, /review, /ship, /land-and-deploy, /canary, /benchmark, /browse, /connect-chrome, /qa, /qa-only, /design-review, /setup-browser-cookies, /setup-deploy, /retro, /investigate, /document-release, /codex, /cso, /autoplan, /plan-devex-review, /devex-review, /careful, /freeze, /guard, /unfreeze, /gstack-upgrade, /learn. Then ask the user if they also want to add gstack to the current project so teammates get it.
 
 ### Step 2: Add to your repo so teammates get it (optional)
 
-> Add gstack to this project: run **`cp -Rf ~/.claude/skills/gstack .claude/skills/gstack && rm -rf .claude/skills/gstack/.git && cd .claude/skills/gstack && ./setup`** then add a "gstack" section to this project's CLAUDE.md that says to use the /browse skill from gstack for all web browsing, never use mcp\_\_claude-in-chrome\_\_\* tools, lists the available skills: /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /design-consultation, /design-shotgun, /design-html, /review, /ship, /land-and-deploy, /canary, /benchmark, /browse, /connect-chrome, /qa, /qa-only, /design-review, /setup-browser-cookies, /setup-deploy, /retro, /investigate, /document-release, /codex, /cso, /autoplan, /careful, /freeze, /guard, /unfreeze, /gstack-upgrade, /learn, and tells Claude that if gstack skills aren't working, run `cd .claude/skills/gstack && ./setup` to build the binary and register skills.
+> Add gstack to this project: run **`cp -Rf ~/.claude/skills/gstack .claude/skills/gstack && rm -rf .claude/skills/gstack/.git && cd .claude/skills/gstack && ./setup`** then add a "gstack" section to this project's CLAUDE.md that says to use the /browse skill from gstack for all web browsing, never use mcp\_\_claude-in-chrome\_\_\* tools, lists the available skills: /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /design-consultation, /design-shotgun, /design-html, /review, /ship, /land-and-deploy, /canary, /benchmark, /browse, /connect-chrome, /qa, /qa-only, /design-review, /setup-browser-cookies, /setup-deploy, /retro, /investigate, /document-release, /codex, /cso, /autoplan, /plan-devex-review, /devex-review, /careful, /freeze, /guard, /unfreeze, /gstack-upgrade, /learn, and tells Claude that if gstack skills aren't working, run `cd .claude/skills/gstack && ./setup` to build the binary and register skills.
 
 Real files get committed to your repo (not a submodule), so `git clone` just works. Everything lives inside `.claude/`. Nothing touches your PATH or runs in the background.
 
@@ -129,63 +128,63 @@ Real files get committed to your repo (not a submodule), so `git clone` just wor
 > git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
 > ```
 
-### Codex, Gemini CLI, or Cursor
+### Other AI Agents
 
-gstack works on any agent that supports the [SKILL.md standard](https://github.com/anthropics/claude-code). Skills live in `.agents/skills/` and are discovered automatically.
+gstack works on 8 AI coding agents, not just Claude. All 31 skills work across
+every supported agent. Setup auto-detects which agents you have installed, or
+you can target a specific one.
 
-Install to one repo:
+#### Auto-detect (installs for every agent on your machine)
 
 ```bash
-git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git .agents/skills/gstack
-cd .agents/skills/gstack && ./setup --host codex
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
+cd ~/gstack && ./setup
 ```
 
-When setup runs from `.agents/skills/gstack`, it installs the generated Codex skills next to it in the same repo and does not write to `~/.codex/skills`.
-
-Install once for your user account:
+#### OpenAI Codex CLI
 
 ```bash
 git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
 cd ~/gstack && ./setup --host codex
 ```
 
-`setup --host codex` creates the runtime root at `~/.codex/skills/gstack` and
-links the generated Codex skills at the top level. This avoids duplicate skill
-discovery from the source repo checkout.
+Skills install to `~/.codex/skills/gstack-*/`. For repo-local installs, clone
+into `.agents/skills/gstack` instead.
 
-Or let setup auto-detect which agents you have installed:
+#### OpenCode
 
 ```bash
 git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
-cd ~/gstack && ./setup --host auto
+cd ~/gstack && ./setup --host opencode
 ```
 
-For Codex-compatible hosts, setup now supports both repo-local installs from `.agents/skills/gstack` and user-global installs from `~/.codex/skills/gstack`. All 31 skills work across all supported agents. Hook-based safety skills (careful, freeze, guard) use inline safety advisory prose on non-Claude hosts.
+Skills install to `~/.config/opencode/skills/gstack-*/`.
 
-### Factory Droid
+#### Cursor
 
-gstack works with [Factory Droid](https://factory.ai). Skills install to `.factory/skills/` and are discovered automatically. Sensitive skills (ship, land-and-deploy, guard) use `disable-model-invocation: true` so Droids don't auto-invoke them.
+```bash
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
+cd ~/gstack && ./setup --host cursor
+```
+
+Skills install to `~/.cursor/skills/gstack-*/`.
+
+#### Factory Droid
 
 ```bash
 git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
 cd ~/gstack && ./setup --host factory
 ```
 
-Skills install to `~/.factory/skills/gstack-*/`. Restart `droid` to rescan skills, then type `/qa` to get started.
+Skills install to `~/.factory/skills/gstack-*/`. Sensitive skills use
+`disable-model-invocation: true` so Droids don't auto-invoke them.
 
-### Voice input (AquaVoice, Whisper, etc.)
+#### OpenClaw
 
-gstack skills have voice-friendly trigger phrases. Say what you want naturally —
-"run a security check", "test the website", "do an engineering review" — and the
-right skill activates. You don't need to remember slash command names or acronyms.
-
-## See it work
-
+```bash
+git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
+cd ~/gstack && ./setup --host openclaw
 ```
-You:    I want to build a daily briefing app for my calendar.
-You:    /office-hours
-Claude: [asks about the pain — specific examples, not hypotheticals]
 
-You:    Multiple Google calendars, events with stale info, wrong locations.
-        Prep takes forever and the results aren't good enough...
+Skills install to `~/.openclaw/skills/gstack-*/`. Tool names are rewritten
 ```
