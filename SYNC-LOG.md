@@ -2,8 +2,8 @@
 
 ## latest cycle
 
-- previous source sha: `be96ff5ce771f67d4502ea4b2fbbcba53654cdcf`
-- current source sha: `04b709d91a3f10efa1c816c6ddb4c8cafa735da8`
+- previous source sha: `04b709d91a3f10efa1c816c6ddb4c8cafa735da8`
+- current source sha: `422f172fbbcb75774c86bbe5d7c097adaf561380`
 - mode: `update`
 - impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 
@@ -13,33 +13,37 @@ origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽
 
 ## upstream commits reviewed
 
-- `04b709d feat: declarative multi-host platform + OpenCode, Slate, Cursor, OpenClaw (v0.15.5.0) (#793)`
-- `4478514 feat: interactive /plan-devex-review + plan mode skill fix (v0.15.5.0) (#796)`
-- `3f080de feat: GStack Browser — double-click AI browser with anti-bot stealth (#695)`
-- `cf73db5 feat: autoplan DX integration + README docs (v0.15.4.0) (#791)`
+- `422f172 feat: ship re-run executes all verification checks (v0.15.10.0) (#833)`
+- `b3cd3fd feat: native OpenClaw skills + ClaHub publishing (v0.15.10.0) (#832)`
+- `bd8d44d docs: rewrite README OpenClaw install — one paste, real instructions (#818)`
+- `e2d005c feat: OpenClaw integration v2 — prompt is the bridge (v0.15.9.0) (#816)`
+- `2b08cfe fix: close redundant PRs + friendly error on all design commands (v0.15.8.1) (#817)`
+- `1652f22 fix(discover): parse Codex sessions with large session_meta (>4KB) (#798)`
+- `f91ad61 fix: user-friendly error when OpenAI org is not verified (#776)`
+- `9ca8f1d feat: adaptive gating + cross-review dedup for review army (v0.15.2.0) (#760)`
 
 ## evidence
 
 - source remote: `https://github.com/garrytan/gstack.git`
 - docs/interesting dirs: docs/
 - changed file sample:
-- `.gitignore`
 - `CHANGELOG.md`
 - `CLAUDE.md`
-- `CONTRIBUTING.md`
 - `README.md`
 - `SKILL.md`
-- `TODOS.md`
 - `VERSION`
 - `autoplan/SKILL.md`
-- `autoplan/SKILL.md.tmpl`
 - `benchmark/SKILL.md`
-- `bin/gstack-platform-detect`
+- `bin/gstack-global-discover`
+- `bin/gstack-global-discover.ts`
+- `bin/gstack-specialist-stats`
 - `browse/SKILL.md`
 - `browse/src/browser-manager.ts`
-- `browse/src/cli.ts`
-- `browse/src/cookie-picker-ui.ts`
+- `browse/src/config.ts`
+- `browse/src/cookie-picker-routes.ts`
 - `browse/src/server.ts`
 - `browse/src/sidebar-agent.ts`
-- `browse/src/welcome.html`
+- `browse/src/url-validation.ts`
+- `browse/src/write-commands.ts`
 - `browse/test/server-auth.test.ts`
+- `canary/SKILL.md`

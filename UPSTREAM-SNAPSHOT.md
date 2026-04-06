@@ -1,8 +1,8 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `be96ff5ce771f67d4502ea4b2fbbcba53654cdcf`
-- current synced commit: `04b709d91a3f10efa1c816c6ddb4c8cafa735da8`
+- previous synced commit: `04b709d91a3f10efa1c816c6ddb4c8cafa735da8`
+- current synced commit: `422f172fbbcb75774c86bbe5d7c097adaf561380`
 - sync mode: `update`
 - impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 - guide repo: `gstack-guide`
@@ -13,10 +13,14 @@
 
 ## recent upstream commits
 
-- `04b709d feat: declarative multi-host platform + OpenCode, Slate, Cursor, OpenClaw (v0.15.5.0) (#793)`
-- `4478514 feat: interactive /plan-devex-review + plan mode skill fix (v0.15.5.0) (#796)`
-- `3f080de feat: GStack Browser — double-click AI browser with anti-bot stealth (#695)`
-- `cf73db5 feat: autoplan DX integration + README docs (v0.15.4.0) (#791)`
+- `422f172 feat: ship re-run executes all verification checks (v0.15.10.0) (#833)`
+- `b3cd3fd feat: native OpenClaw skills + ClaHub publishing (v0.15.10.0) (#832)`
+- `bd8d44d docs: rewrite README OpenClaw install — one paste, real instructions (#818)`
+- `e2d005c feat: OpenClaw integration v2 — prompt is the bridge (v0.15.9.0) (#816)`
+- `2b08cfe fix: close redundant PRs + friendly error on all design commands (v0.15.8.1) (#817)`
+- `1652f22 fix(discover): parse Codex sessions with large session_meta (>4KB) (#798)`
+- `f91ad61 fix: user-friendly error when OpenAI org is not verified (#776)`
+- `9ca8f1d feat: adaptive gating + cross-review dedup for review army (v0.15.2.0) (#760)`
 
 ## top-level structure
 
@@ -43,26 +47,26 @@
 
 ## changed files
 
-- `.gitignore`
 - `CHANGELOG.md`
 - `CLAUDE.md`
-- `CONTRIBUTING.md`
 - `README.md`
 - `SKILL.md`
-- `TODOS.md`
 - `VERSION`
 - `autoplan/SKILL.md`
-- `autoplan/SKILL.md.tmpl`
 - `benchmark/SKILL.md`
-- `bin/gstack-platform-detect`
+- `bin/gstack-global-discover`
+- `bin/gstack-global-discover.ts`
+- `bin/gstack-specialist-stats`
 - `browse/SKILL.md`
 - `browse/src/browser-manager.ts`
-- `browse/src/cli.ts`
-- `browse/src/cookie-picker-ui.ts`
+- `browse/src/config.ts`
+- `browse/src/cookie-picker-routes.ts`
 - `browse/src/server.ts`
 - `browse/src/sidebar-agent.ts`
-- `browse/src/welcome.html`
+- `browse/src/url-validation.ts`
+- `browse/src/write-commands.ts`
 - `browse/test/server-auth.test.ts`
+- `canary/SKILL.md`
 
 ## README excerpt
 
@@ -128,63 +132,63 @@ Real files get committed to your repo (not a submodule), so `git clone` just wor
 > git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
 > ```
 
+### OpenClaw
+
+OpenClaw spawns Claude Code sessions via ACP, so every gstack skill just works
+when Claude Code has gstack installed. Paste this to your OpenClaw agent:
+
+> Install gstack: run `git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup` to install gstack for Claude Code. Then add a "Coding Tasks" section to AGENTS.md that says: when spawning Claude Code sessions for coding work, tell the session to use gstack skills. Include these examples — security audit: "Load gstack. Run /cso", code review: "Load gstack. Run /review", QA test a URL: "Load gstack. Run /qa https://...", build a feature end-to-end: "Load gstack. Run /autoplan, implement the plan, then run /ship", plan before building: "Load gstack. Run /office-hours then /autoplan. Save the plan, don't implement."
+
+**After setup, just talk to your OpenClaw agent naturally:**
+
+| You say | What happens |
+|---------|-------------|
+| "Fix the typo in README" | Simple — Claude Code session, no gstack needed |
+| "Run a security audit on this repo" | Spawns Claude Code with `Run /cso` |
+| "Build me a notifications feature" | Spawns Claude Code with /autoplan → implement → /ship |
+| "Help me plan the v2 API redesign" | Spawns Claude Code with /office-hours → /autoplan, saves plan |
+
+See [docs/OPENCLAW.md](docs/OPENCLAW.md) for advanced dispatch routing and
+the gstack-lite/gstack-full prompt templates.
+
+### Native OpenClaw Skills (via ClawHub)
+
+Four methodology skills that work directly in your OpenClaw agent, no Claude Code
+session needed. Install from ClawHub:
+
+```
+clawhub install gstack-openclaw-office-hours gstack-openclaw-ceo-review gstack-openclaw-investigate gstack-openclaw-retro
+```
+
+| Skill | What it does |
+|-------|-------------|
+| `gstack-openclaw-office-hours` | Product interrogation with 6 forcing questions |
+| `gstack-openclaw-ceo-review` | Strategic challenge with 4 scope modes |
+| `gstack-openclaw-investigate` | Root cause debugging methodology |
+| `gstack-openclaw-retro` | Weekly engineering retrospective |
+
+These are conversational skills. Your OpenClaw agent runs them directly via chat.
+
 ### Other AI Agents
 
-gstack works on 8 AI coding agents, not just Claude. All 31 skills work across
-every supported agent. Setup auto-detects which agents you have installed, or
-you can target a specific one.
-
-#### Auto-detect (installs for every agent on your machine)
+gstack works on 8 AI coding agents, not just Claude. Setup auto-detects which
+agents you have installed:
 
 ```bash
 git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
 cd ~/gstack && ./setup
 ```
 
-#### OpenAI Codex CLI
+Or target a specific agent with `./setup --host <name>`:
 
-```bash
-git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
-cd ~/gstack && ./setup --host codex
-```
+| Agent | Flag | Skills install to |
+|-------|------|-------------------|
+| OpenAI Codex CLI | `--host codex` | `~/.codex/skills/gstack-*/` |
+| OpenCode | `--host opencode` | `~/.config/opencode/skills/gstack-*/` |
+| Cursor | `--host cursor` | `~/.cursor/skills/gstack-*/` |
+| Factory Droid | `--host factory` | `~/.factory/skills/gstack-*/` |
+| Slate | `--host slate` | `~/.slate/skills/gstack-*/` |
+| Kiro | `--host kiro` | `~/.kiro/skills/gstack-*/` |
 
-Skills install to `~/.codex/skills/gstack-*/`. For repo-local installs, clone
-into `.agents/skills/gstack` instead.
-
-#### OpenCode
-
-```bash
-git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
-cd ~/gstack && ./setup --host opencode
-```
-
-Skills install to `~/.config/opencode/skills/gstack-*/`.
-
-#### Cursor
-
-```bash
-git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
-cd ~/gstack && ./setup --host cursor
-```
-
-Skills install to `~/.cursor/skills/gstack-*/`.
-
-#### Factory Droid
-
-```bash
-git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
-cd ~/gstack && ./setup --host factory
-```
-
-Skills install to `~/.factory/skills/gstack-*/`. Sensitive skills use
-`disable-model-invocation: true` so Droids don't auto-invoke them.
-
-#### OpenClaw
-
-```bash
-git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
-cd ~/gstack && ./setup --host openclaw
-```
-
-Skills install to `~/.openclaw/skills/gstack-*/`. Tool names are rewritten
+**Want to add support for another agent?** See [docs/ADDING_A_HOST.md](docs/ADDING_A_HOST.md).
 ```
