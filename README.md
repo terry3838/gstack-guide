@@ -6,7 +6,7 @@
 
 ## 현재 릴리스 기준
 
-- 업스트림 확인 버전: `0.15.1.0`
+- 업스트림 확인 버전: `0.15.15.1`
 - 지원 호스트: Claude Code, Codex, Gemini CLI, Cursor, Factory Droid
 - 현재 포지셔닝: "가상 엔지니어링 팀"과 "실제 브라우저를 가진 QA/디자인/릴리스 파이프라인"
 - 최근에 중요해진 축: `/connect-chrome`, Side Panel 기반 브라우저 협업, `/document-release`, `/gstack-upgrade`, `/learn`, Codex second opinion, opt-in telemetry
@@ -65,16 +65,17 @@
 ## 자동 동기화 상태
 
 - origin repo: `gstack`
-- latest source commit: `47b3ee2ced50`
+- latest source commit: `6cc094cd4190`
 - sync mode: `update`
-- 영향 분류: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
+- 영향 분류: 브라우저/pair-agent
 
 ### 이번 반영 포인트
 
-origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증.
+pair-agent 터널 안정성 버그 수정(v0.15.15.1)을 가이드에 반영했습니다. 핵심 영향 영역: 브라우저/pair-agent.
 
 ### 최근 upstream 커밋
 
+- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
 - `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
 - `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
 - `03973c2 fix: community security wave — 8 PRs, 4 contributors (v0.15.13.0) (#847)`
@@ -85,25 +86,10 @@ origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽
 ### 변경 파일 샘플
 
 - `CHANGELOG.md`
-- `CLAUDE.md`
-- `CONTRIBUTING.md`
-- `README.md`
-- `SKILL.md`
 - `VERSION`
-- `autoplan/SKILL.md`
-- `benchmark/SKILL.md`
-- `bin/gstack-learnings-search`
-- `bin/gstack-session-update`
-- `bin/gstack-settings-hook`
-- `bin/gstack-team-init`
-- `bin/gstack-telemetry-sync`
-- `bin/gstack-uninstall`
-- `browse/PLAN-snapshot-dropdown-interactive.md`
-- `browse/SKILL.md`
-- `browse/src/activity.ts`
-- `browse/src/browser-manager.ts`
-- `browse/src/cdp-inspector.ts`
 - `browse/src/cli.ts`
+- `browse/src/server.ts`
+- `browse/test/server-auth.test.ts`
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->

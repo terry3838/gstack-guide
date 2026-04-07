@@ -30,6 +30,7 @@ daemon은 프로젝트 루트 `.gstack/browse.json`에 상태를 기록하고, C
 - 상태 파일 권한 제한
 - idle timeout 후 자동 종료
 - 서버가 죽으면 다음 호출에서 새로 띄우는 crash recovery
+- pair-agent 세션에서는 parent PID 감시를 비활성화하여 터널이 CLI 종료 후에도 유지
 
 즉 로컬 도구이지만 인증을 생략하지 않습니다.
 

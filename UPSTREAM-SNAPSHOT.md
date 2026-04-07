@@ -1,10 +1,10 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `422f172fbbcb75774c86bbe5d7c097adaf561380`
-- current synced commit: `47b3ee2ced507bb61ed61843d3c0b2520b019eec`
+- previous synced commit: `47b3ee2ced507bb61ed61843d3c0b2520b019eec`
+- current synced commit: `6cc094cd4190e3fac65b69fb29e0c3cae7e0f214`
 - sync mode: `update`
-- impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
+- impact labels: 브라우저/pair-agent
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,6 +13,7 @@
 
 ## recent upstream commits
 
+- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
 - `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
 - `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
 - `03973c2 fix: community security wave — 8 PRs, 4 contributors (v0.15.13.0) (#847)`

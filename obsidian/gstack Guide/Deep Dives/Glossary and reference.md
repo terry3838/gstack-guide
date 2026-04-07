@@ -43,7 +43,7 @@
 
 ## 지금 특히 확인할 최신 포인트
 
-- 업스트림 버전: `0.15.1.0`
+- 업스트림 버전: `0.15.15.1`
 - 지원 호스트: Claude Code, Codex, Gemini CLI, Cursor, Factory Droid
 - 최근 중요 기능: `/connect-chrome`, Side Panel extension, sidebar agent, `/document-release`, `/gstack-upgrade`, `/learn`, opt-in telemetry
 - 운영 확장: `/land-and-deploy`, `/canary`, `/benchmark`
