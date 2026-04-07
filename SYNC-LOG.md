@@ -2,8 +2,8 @@
 
 ## latest cycle
 
-- previous source sha: `04b709d91a3f10efa1c816c6ddb4c8cafa735da8`
-- current source sha: `422f172fbbcb75774c86bbe5d7c097adaf561380`
+- previous source sha: `422f172fbbcb75774c86bbe5d7c097adaf561380`
+- current source sha: `47b3ee2ced507bb61ed61843d3c0b2520b019eec`
 - mode: `update`
 - impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 
@@ -13,14 +13,14 @@ origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽
 
 ## upstream commits reviewed
 
-- `422f172 feat: ship re-run executes all verification checks (v0.15.10.0) (#833)`
-- `b3cd3fd feat: native OpenClaw skills + ClaHub publishing (v0.15.10.0) (#832)`
-- `bd8d44d docs: rewrite README OpenClaw install — one paste, real instructions (#818)`
-- `e2d005c feat: OpenClaw integration v2 — prompt is the bridge (v0.15.9.0) (#816)`
-- `2b08cfe fix: close redundant PRs + friendly error on all design commands (v0.15.8.1) (#817)`
-- `1652f22 fix(discover): parse Codex sessions with large session_meta (>4KB) (#798)`
-- `f91ad61 fix: user-friendly error when OpenAI org is not verified (#776)`
-- `9ca8f1d feat: adaptive gating + cross-review dedup for review army (v0.15.2.0) (#760)`
+- `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
+- `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
+- `03973c2 fix: community security wave — 8 PRs, 4 contributors (v0.15.13.0) (#847)`
+- `b3d064a fix: gstack-team-init detects and removes vendored copies (#848)`
+- `dae251e feat: team-friendly gstack install mode (v0.15.7.0) (#809)`
+- `a94a64f fix: snapshot -i auto-detects dropdown/popover interactive elements (#845)`
+- `237ae2a Revert "fix: snapshot -i auto-detects dropdown/popover interactive elements (#844)"`
+- `542e783 fix: snapshot -i auto-detects dropdown/popover interactive elements (#844)`
 
 ## evidence
 
@@ -29,21 +29,21 @@ origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽
 - changed file sample:
 - `CHANGELOG.md`
 - `CLAUDE.md`
+- `CONTRIBUTING.md`
 - `README.md`
 - `SKILL.md`
 - `VERSION`
 - `autoplan/SKILL.md`
 - `benchmark/SKILL.md`
-- `bin/gstack-global-discover`
-- `bin/gstack-global-discover.ts`
-- `bin/gstack-specialist-stats`
+- `bin/gstack-learnings-search`
+- `bin/gstack-session-update`
+- `bin/gstack-settings-hook`
+- `bin/gstack-team-init`
+- `bin/gstack-telemetry-sync`
+- `bin/gstack-uninstall`
+- `browse/PLAN-snapshot-dropdown-interactive.md`
 - `browse/SKILL.md`
+- `browse/src/activity.ts`
 - `browse/src/browser-manager.ts`
-- `browse/src/config.ts`
-- `browse/src/cookie-picker-routes.ts`
-- `browse/src/server.ts`
-- `browse/src/sidebar-agent.ts`
-- `browse/src/url-validation.ts`
-- `browse/src/write-commands.ts`
-- `browse/test/server-auth.test.ts`
-- `canary/SKILL.md`
+- `browse/src/cdp-inspector.ts`
+- `browse/src/cli.ts`

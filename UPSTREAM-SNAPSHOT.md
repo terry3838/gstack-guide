@@ -1,8 +1,8 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `04b709d91a3f10efa1c816c6ddb4c8cafa735da8`
-- current synced commit: `422f172fbbcb75774c86bbe5d7c097adaf561380`
+- previous synced commit: `422f172fbbcb75774c86bbe5d7c097adaf561380`
+- current synced commit: `47b3ee2ced507bb61ed61843d3c0b2520b019eec`
 - sync mode: `update`
 - impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 - guide repo: `gstack-guide`
@@ -13,14 +13,14 @@
 
 ## recent upstream commits
 
-- `422f172 feat: ship re-run executes all verification checks (v0.15.10.0) (#833)`
-- `b3cd3fd feat: native OpenClaw skills + ClaHub publishing (v0.15.10.0) (#832)`
-- `bd8d44d docs: rewrite README OpenClaw install — one paste, real instructions (#818)`
-- `e2d005c feat: OpenClaw integration v2 — prompt is the bridge (v0.15.9.0) (#816)`
-- `2b08cfe fix: close redundant PRs + friendly error on all design commands (v0.15.8.1) (#817)`
-- `1652f22 fix(discover): parse Codex sessions with large session_meta (>4KB) (#798)`
-- `f91ad61 fix: user-friendly error when OpenAI org is not verified (#776)`
-- `9ca8f1d feat: adaptive gating + cross-review dedup for review army (v0.15.2.0) (#760)`
+- `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
+- `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
+- `03973c2 fix: community security wave — 8 PRs, 4 contributors (v0.15.13.0) (#847)`
+- `b3d064a fix: gstack-team-init detects and removes vendored copies (#848)`
+- `dae251e feat: team-friendly gstack install mode (v0.15.7.0) (#809)`
+- `a94a64f fix: snapshot -i auto-detects dropdown/popover interactive elements (#845)`
+- `237ae2a Revert "fix: snapshot -i auto-detects dropdown/popover interactive elements (#844)"`
+- `542e783 fix: snapshot -i auto-detects dropdown/popover interactive elements (#844)`
 
 ## top-level structure
 
@@ -49,24 +49,24 @@
 
 - `CHANGELOG.md`
 - `CLAUDE.md`
+- `CONTRIBUTING.md`
 - `README.md`
 - `SKILL.md`
 - `VERSION`
 - `autoplan/SKILL.md`
 - `benchmark/SKILL.md`
-- `bin/gstack-global-discover`
-- `bin/gstack-global-discover.ts`
-- `bin/gstack-specialist-stats`
+- `bin/gstack-learnings-search`
+- `bin/gstack-session-update`
+- `bin/gstack-settings-hook`
+- `bin/gstack-team-init`
+- `bin/gstack-telemetry-sync`
+- `bin/gstack-uninstall`
+- `browse/PLAN-snapshot-dropdown-interactive.md`
 - `browse/SKILL.md`
+- `browse/src/activity.ts`
 - `browse/src/browser-manager.ts`
-- `browse/src/config.ts`
-- `browse/src/cookie-picker-routes.ts`
-- `browse/src/server.ts`
-- `browse/src/sidebar-agent.ts`
-- `browse/src/url-validation.ts`
-- `browse/src/write-commands.ts`
-- `browse/test/server-auth.test.ts`
-- `canary/SKILL.md`
+- `browse/src/cdp-inspector.ts`
+- `browse/src/cli.ts`
 
 ## README excerpt
 
@@ -121,11 +121,23 @@ Open Claude Code and paste this. Claude does the rest.
 
 > Install gstack: run **`git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup`** then add a "gstack" section to CLAUDE.md that says to use the /browse skill from gstack for all web browsing, never use mcp\_\_claude-in-chrome\_\_\* tools, and lists the available skills: /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /design-consultation, /design-shotgun, /design-html, /review, /ship, /land-and-deploy, /canary, /benchmark, /browse, /connect-chrome, /qa, /qa-only, /design-review, /setup-browser-cookies, /setup-deploy, /retro, /investigate, /document-release, /codex, /cso, /autoplan, /plan-devex-review, /devex-review, /careful, /freeze, /guard, /unfreeze, /gstack-upgrade, /learn. Then ask the user if they also want to add gstack to the current project so teammates get it.
 
-### Step 2: Add to your repo so teammates get it (optional)
+### Step 2: Team mode — auto-update for shared repos (recommended)
 
-> Add gstack to this project: run **`cp -Rf ~/.claude/skills/gstack .claude/skills/gstack && rm -rf .claude/skills/gstack/.git && cd .claude/skills/gstack && ./setup`** then add a "gstack" section to this project's CLAUDE.md that says to use the /browse skill from gstack for all web browsing, never use mcp\_\_claude-in-chrome\_\_\* tools, lists the available skills: /office-hours, /plan-ceo-review, /plan-eng-review, /plan-design-review, /design-consultation, /design-shotgun, /design-html, /review, /ship, /land-and-deploy, /canary, /benchmark, /browse, /connect-chrome, /qa, /qa-only, /design-review, /setup-browser-cookies, /setup-deploy, /retro, /investigate, /document-release, /codex, /cso, /autoplan, /plan-devex-review, /devex-review, /careful, /freeze, /guard, /unfreeze, /gstack-upgrade, /learn, and tells Claude that if gstack skills aren't working, run `cd .claude/skills/gstack && ./setup` to build the binary and register skills.
+Every developer installs globally, updates happen automatically:
 
-Real files get committed to your repo (not a submodule), so `git clone` just works. Everything lives inside `.claude/`. Nothing touches your PATH or runs in the background.
+```bash
+cd ~/.claude/skills/gstack && ./setup --team
+```
+
+Then bootstrap your repo so teammates get it:
+
+```bash
+cd <your-repo>
+~/.claude/skills/gstack/bin/gstack-team-init required  # or: optional
+git add .claude/ CLAUDE.md && git commit -m "require gstack for AI-assisted work"
+```
+
+No vendored files in your repo, no version drift, no manual upgrades. Every Claude Code session starts with a fast auto-update check (throttled to once/hour, network-failure-safe, completely silent).
 
 > **Contributing or need full history?** The commands above use `--depth 1` for a fast install. If you plan to contribute or need full git history, do a full clone instead:
 > ```bash
@@ -178,17 +190,4 @@ agents you have installed:
 git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
 cd ~/gstack && ./setup
 ```
-
-Or target a specific agent with `./setup --host <name>`:
-
-| Agent | Flag | Skills install to |
-|-------|------|-------------------|
-| OpenAI Codex CLI | `--host codex` | `~/.codex/skills/gstack-*/` |
-| OpenCode | `--host opencode` | `~/.config/opencode/skills/gstack-*/` |
-| Cursor | `--host cursor` | `~/.cursor/skills/gstack-*/` |
-| Factory Droid | `--host factory` | `~/.factory/skills/gstack-*/` |
-| Slate | `--host slate` | `~/.slate/skills/gstack-*/` |
-| Kiro | `--host kiro` | `~/.kiro/skills/gstack-*/` |
-
-**Want to add support for another agent?** See [docs/ADDING_A_HOST.md](docs/ADDING_A_HOST.md).
 ```

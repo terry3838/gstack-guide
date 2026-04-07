@@ -65,7 +65,7 @@
 ## 자동 동기화 상태
 
 - origin repo: `gstack`
-- latest source commit: `422f172fbbcb`
+- latest source commit: `47b3ee2ced50`
 - sync mode: `update`
 - 영향 분류: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 
@@ -75,35 +75,35 @@ origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽
 
 ### 최근 upstream 커밋
 
-- `422f172 feat: ship re-run executes all verification checks (v0.15.10.0) (#833)`
-- `b3cd3fd feat: native OpenClaw skills + ClaHub publishing (v0.15.10.0) (#832)`
-- `bd8d44d docs: rewrite README OpenClaw install — one paste, real instructions (#818)`
-- `e2d005c feat: OpenClaw integration v2 — prompt is the bridge (v0.15.9.0) (#816)`
-- `2b08cfe fix: close redundant PRs + friendly error on all design commands (v0.15.8.1) (#817)`
-- `1652f22 fix(discover): parse Codex sessions with large session_meta (>4KB) (#798)`
+- `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
+- `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
+- `03973c2 fix: community security wave — 8 PRs, 4 contributors (v0.15.13.0) (#847)`
+- `b3d064a fix: gstack-team-init detects and removes vendored copies (#848)`
+- `dae251e feat: team-friendly gstack install mode (v0.15.7.0) (#809)`
+- `a94a64f fix: snapshot -i auto-detects dropdown/popover interactive elements (#845)`
 
 ### 변경 파일 샘플
 
 - `CHANGELOG.md`
 - `CLAUDE.md`
+- `CONTRIBUTING.md`
 - `README.md`
 - `SKILL.md`
 - `VERSION`
 - `autoplan/SKILL.md`
 - `benchmark/SKILL.md`
-- `bin/gstack-global-discover`
-- `bin/gstack-global-discover.ts`
-- `bin/gstack-specialist-stats`
+- `bin/gstack-learnings-search`
+- `bin/gstack-session-update`
+- `bin/gstack-settings-hook`
+- `bin/gstack-team-init`
+- `bin/gstack-telemetry-sync`
+- `bin/gstack-uninstall`
+- `browse/PLAN-snapshot-dropdown-interactive.md`
 - `browse/SKILL.md`
+- `browse/src/activity.ts`
 - `browse/src/browser-manager.ts`
-- `browse/src/config.ts`
-- `browse/src/cookie-picker-routes.ts`
-- `browse/src/server.ts`
-- `browse/src/sidebar-agent.ts`
-- `browse/src/url-validation.ts`
-- `browse/src/write-commands.ts`
-- `browse/test/server-auth.test.ts`
-- `canary/SKILL.md`
+- `browse/src/cdp-inspector.ts`
+- `browse/src/cli.ts`
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->
