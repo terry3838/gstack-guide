@@ -1,0 +1,13 @@
+# Ralph Progress — gstack-guide 동기화 v0.15.15.1
+
+## Session Start
+- Task: gstack 원본 커밋 6cc094c를 gstack-guide에 반영
+- Plan: .omc/plans/gstack-guide-sync-v0.15.15.1.md
+
+## Learnings
+- obsidian/gstack Guide/01 Overview.md line 33에 historical commit citation (6169273, v0.15.1.0)이 있음 — 수정 불필요
+- build_obsidian_vaults.py 스크립트 없음 — Obsidian 완전 재생성 불가
+- 버전 표기가 0.15.1.0이었으나 실제 이전 sync는 0.15.14.x 수준을 포함했음
+
+## In Progress
+- US-001: 동기화 메타데이터 갱신 (시작)

@@ -2,9 +2,9 @@
 
 - source repo: `https://github.com/garrytan/gstack.git`
 - previous synced commit: `47b3ee2ced507bb61ed61843d3c0b2520b019eec`
-- current synced commit: `6cc094cd4190e3fac65b69fb29e0c3cae7e0f214`
+- current synced commit: `1868636f49020a3092c44d3cbfed2c0eb8fcddc4`
 - sync mode: `update`
-- impact labels: 브라우저/pair-agent
+- impact labels: CLI/명령어, 테스트/검증
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,15 +13,8 @@
 
 ## recent upstream commits
 
+- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
 - `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
-- `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
-- `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
-- `03973c2 fix: community security wave — 8 PRs, 4 contributors (v0.15.13.0) (#847)`
-- `b3d064a fix: gstack-team-init detects and removes vendored copies (#848)`
-- `dae251e feat: team-friendly gstack install mode (v0.15.7.0) (#809)`
-- `a94a64f fix: snapshot -i auto-detects dropdown/popover interactive elements (#845)`
-- `237ae2a Revert "fix: snapshot -i auto-detects dropdown/popover interactive elements (#844)"`
-- `542e783 fix: snapshot -i auto-detects dropdown/popover interactive elements (#844)`
 
 ## top-level structure
 
@@ -48,26 +41,25 @@
 
 ## changed files
 
+- `BROWSER.md`
 - `CHANGELOG.md`
-- `CLAUDE.md`
-- `CONTRIBUTING.md`
-- `README.md`
-- `SKILL.md`
 - `VERSION`
-- `autoplan/SKILL.md`
-- `benchmark/SKILL.md`
-- `bin/gstack-learnings-search`
-- `bin/gstack-session-update`
-- `bin/gstack-settings-hook`
-- `bin/gstack-team-init`
-- `bin/gstack-telemetry-sync`
-- `bin/gstack-uninstall`
-- `browse/PLAN-snapshot-dropdown-interactive.md`
-- `browse/SKILL.md`
-- `browse/src/activity.ts`
 - `browse/src/browser-manager.ts`
-- `browse/src/cdp-inspector.ts`
 - `browse/src/cli.ts`
+- `browse/src/cookie-picker-routes.ts`
+- `browse/src/meta-commands.ts`
+- `browse/src/read-commands.ts`
+- `browse/src/server.ts`
+- `browse/src/snapshot.ts`
+- `browse/src/tab-session.ts`
+- `browse/src/write-commands.ts`
+- `browse/test/batch.test.ts`
+- `browse/test/commands.test.ts`
+- `browse/test/compare-board.test.ts`
+- `browse/test/handoff.test.ts`
+- `browse/test/server-auth.test.ts`
+- `browse/test/snapshot.test.ts`
+- `test/skill-e2e-workflow.test.ts`
 
 ## README excerpt
 

@@ -1,0 +1,162 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775541406964,
+  "projectRoot": "/home/terry/guide/gstack-guide",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {
+      "render:diagrams": "node tools/render_diagrams.mjs",
+      "sanitize:public": "bash tools/public-doc-sanitize-release.sh --dry-run --skip-commit --no-push",
+      "sanitize:public:release": "bash tools/public-doc-sanitize-release.sh --allow-empty --omc-note"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1775541406941,
+      "keyFiles": []
+    },
+    "obsidian": {
+      "path": "obsidian",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1775541406943,
+      "keyFiles": []
+    },
+    "sections": {
+      "path": "sections",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775541406951,
+      "keyFiles": [
+        "01-overview.md"
+      ]
+    },
+    "tools": {
+      "path": "tools",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775541406956,
+      "keyFiles": [
+        "public-doc-sanitize-release.sh",
+        "render_diagrams.mjs"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "",
+      "accessCount": 25,
+      "lastAccessed": 1775542968713,
+      "type": "directory"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 12,
+      "lastAccessed": 1775542955554,
+      "type": "file"
+    },
+    {
+      "path": "06-glossary-and-reference.md",
+      "accessCount": 12,
+      "lastAccessed": 1775543030550,
+      "type": "file"
+    },
+    {
+      "path": "sections/01-overview.md",
+      "accessCount": 10,
+      "lastAccessed": 1775542953326,
+      "type": "file"
+    },
+    {
+      "path": "SYNC-LOG.md",
+      "accessCount": 9,
+      "lastAccessed": 1775542954249,
+      "type": "file"
+    },
+    {
+      "path": "UPSTREAM-SNAPSHOT.md",
+      "accessCount": 8,
+      "lastAccessed": 1775542947267,
+      "type": "file"
+    },
+    {
+      "path": "04-browser-and-architecture.md",
+      "accessCount": 8,
+      "lastAccessed": 1775543030074,
+      "type": "file"
+    },
+    {
+      "path": "obsidian/gstack Guide/Deep Dives/Glossary and reference.md",
+      "accessCount": 5,
+      "lastAccessed": 1775542735572,
+      "type": "file"
+    },
+    {
+      "path": "obsidian/gstack Guide/Deep Dives/Build test and publish.md",
+      "accessCount": 5,
+      "lastAccessed": 1775542738183,
+      "type": "file"
+    },
+    {
+      "path": "obsidian/gstack Guide/Deep Dives/Browser and architecture.md",
+      "accessCount": 3,
+      "lastAccessed": 1775541987119,
+      "type": "file"
+    },
+    {
+      "path": "obsidian",
+      "accessCount": 3,
+      "lastAccessed": 1775542025299,
+      "type": "directory"
+    },
+    {
+      "path": "obsidian/gstack Guide/01 Overview.md",
+      "accessCount": 3,
+      "lastAccessed": 1775542303530,
+      "type": "file"
+    },
+    {
+      "path": "OBSIDIAN-VAULT-MAP.md",
+      "accessCount": 1,
+      "lastAccessed": 1775541786161,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
