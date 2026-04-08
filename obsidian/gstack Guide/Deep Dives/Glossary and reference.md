@@ -23,6 +23,7 @@
 - **Skill** — 특정 역할을 수행하도록 설계된 `SKILL.md` 기반 실행 표면
 - **Generated SKILL.md** — 직접 수정 대상이 아니라 템플릿과 생성기에서 만들어지는 결과물
 - **Browse daemon** — long-lived Chromium + localhost HTTP server 구조
+- **BROWSE_PARENT_PID** — daemon이 부모 프로세스 종료를 감지하여 자동 종료하는 환경 변수. pair-agent는 이를 `0`으로 설정하여 비활성화
 - **Ref system** — `snapshot` 이후 `@e`, `@c` ref로 요소를 안정적으로 다시 찾는 방식
 - **Repo-local install** — 프로젝트 내부 `.claude/skills/gstack` 또는 `.agents/skills/gstack` 설치
 - **User-global install** — 사용자 홈 기준 공용 skill/runtime 루트 설치
