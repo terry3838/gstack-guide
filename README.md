@@ -65,7 +65,7 @@
 ## 자동 동기화 상태
 
 - origin repo: `gstack`
-- latest source commit: `1868636f4902`
+- latest source commit: `a7593d70ef1b`
 - sync mode: `update`
 - 영향 분류: CLI/명령어, 테스트/검증
 
@@ -75,30 +75,32 @@ origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽
 
 ### 최근 upstream 커밋
 
-- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
-- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
+- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
+- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
+- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
 
 ### 변경 파일 샘플
 
-- `BROWSER.md`
 - `CHANGELOG.md`
+- `SKILL.md`
 - `VERSION`
-- `browse/src/browser-manager.ts`
+- `bin/gstack-slug`
+- `browse/SKILL.md`
 - `browse/src/cli.ts`
+- `browse/src/commands.ts`
 - `browse/src/cookie-picker-routes.ts`
+- `browse/src/cookie-picker-ui.ts`
+- `browse/src/media-extract.ts`
 - `browse/src/meta-commands.ts`
+- `browse/src/network-capture.ts`
+- `browse/src/path-security.ts`
 - `browse/src/read-commands.ts`
 - `browse/src/server.ts`
-- `browse/src/snapshot.ts`
-- `browse/src/tab-session.ts`
+- `browse/src/token-registry.ts`
 - `browse/src/write-commands.ts`
-- `browse/test/batch.test.ts`
-- `browse/test/commands.test.ts`
-- `browse/test/compare-board.test.ts`
-- `browse/test/handoff.test.ts`
-- `browse/test/server-auth.test.ts`
-- `browse/test/snapshot.test.ts`
-- `test/skill-e2e-workflow.test.ts`
+- `browse/test/cookie-picker-routes.test.ts`
+- `browse/test/data-platform.test.ts`
+- `browse/test/fixtures/media-page.html`
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->
