@@ -66,27 +66,25 @@
 
 - origin repo: `gstack`
 - latest source commit: `dbd7aee5b6b5`
-- sync mode: `update`
-- 영향 분류: CLI/명령어
+- sync mode: `no-change`
+- 영향 분류: 일반 변경
 
 ### 이번 반영 포인트
 
-origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: CLI/명령어.
+이번 싸이클에서는 origin 변경이 없어 guide 본문은 유지했고, 동기화 기준점만 재확인했습니다.
 
 ### 최근 upstream 커밋
 
 - `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
+- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
+- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
+- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
+- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
+- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
 
 ### 변경 파일 샘플
 
-- `CHANGELOG.md`
-- `VERSION`
-- `bin/gstack-builder-profile`
-- `gstack-upgrade/migrations/v0.16.2.0.sh`
-- `office-hours/SKILL.md`
-- `office-hours/SKILL.md.tmpl`
-- `package.json`
-- `test/builder-profile.test.ts`
+- 이번 싸이클에서는 신규 변경 파일이 없습니다.
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->

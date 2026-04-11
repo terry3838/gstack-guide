@@ -1,10 +1,10 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `a7593d70ef1b6500d1f6457c58cf7c9896cf6062`
+- previous synced commit: `dbd7aee5b6b5bb41b17ae7747568e2fda8a91d77`
 - current synced commit: `dbd7aee5b6b5bb41b17ae7747568e2fda8a91d77`
-- sync mode: `update`
-- impact labels: CLI/명령어
+- sync mode: `no-change`
+- impact labels: 일반 변경
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -14,6 +14,13 @@
 ## recent upstream commits
 
 - `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
+- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
+- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
+- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
+- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
+- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
+- `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
+- `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
 
 ## top-level structure
 
@@ -40,14 +47,7 @@
 
 ## changed files
 
-- `CHANGELOG.md`
-- `VERSION`
-- `bin/gstack-builder-profile`
-- `gstack-upgrade/migrations/v0.16.2.0.sh`
-- `office-hours/SKILL.md`
-- `office-hours/SKILL.md.tmpl`
-- `package.json`
-- `test/builder-profile.test.ts`
+- 변경 파일 없음
 
 ## README excerpt
 
