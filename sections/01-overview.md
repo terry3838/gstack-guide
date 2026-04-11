@@ -1,57 +1,36 @@
 # gstack 개요
 
-## 원본 저장소 역할
+## repo 역할
 
 - repo: `gstack`
 - source: `https://github.com/garrytan/gstack.git`
+- version basis: `0.16.2.0`
 - latest synced commit: `dbd7aee5b6b5`
-- summary: > "I don't think I've typed like a line of code probably since December, basically, which is an extremely large change." — [Andrej Karpathy](https://fortune.com/2026/03/21/andrej-karpathy-openai-cofounder-ai-agents-coding-state-of-psychosis-openclaw/), No Priors podcast, March 2026
 
-## 이번 싸이클 판단
+## 왜 frontdoor를 다시 썼나
 
-- sync mode: `no-change`
-- impact labels: 일반 변경
-- 판단: 이번 싸이클에서는 origin 변경이 없어 guide 본문은 유지했고, 동기화 기준점만 재확인했습니다.
+기존 가이드는 멀티호스트와 browser/ship 쪽은 잘 잡았지만,
+현재 upstream이 더 강하게 미는 세 가지를 frontdoor에서 충분히 전면화하지 못했어요.
 
-## 최근 upstream 커밋
+1. `/office-hours` 중심 시작 루프
+2. OpenClaw 연동과 Native OpenClaw Skills
+3. team mode와 멀티호스트 설치
 
-- `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
-- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
-- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
-- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
-- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
-- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
+## 지금 기준의 핵심 메시지
 
-## 확인한 원본 구조
+- gstack는 workflow system이에요
+- 시작점은 `/office-hours`예요
+- OpenClaw와 붙는 방법론 층으로 읽는 게 맞아요
+- `/document-release`까지 포함한 release/doc sync 루프가 중요해졌어요
 
-- `.env.example`
-- `actionlint.yaml`
-- `agents/`
-- `AGENTS.md`
-- `ARCHITECTURE.md`
-- `autoplan/`
-- `benchmark/`
-- `bin/`
-- `browse/`
-- `BROWSER.md`
-- `bun.lock`
-- `canary/`
-- `careful/`
-- `CHANGELOG.md`
-- `checkpoint/`
-- `CLAUDE.md`
-- `codex/`
-- `conductor.json`
-- `connect-chrome/`
-- `contrib/`
+## 학습자가 먼저 볼 것
 
-## guide 업데이트 포인트
+- `README.md`
+- `01-installation-and-setup.md`
+- `02-sprint-workflow.md`
+- `03-skill-catalog.md`
 
-- README 관리 블록 갱신
-- `UPSTREAM-SNAPSHOT.md` 갱신
-- `SYNC-LOG.md` 갱신
-- 개요 문서 재작성
+## 다음 행동
 
-## 변경 파일 샘플
-
-- 변경 파일 없음
+처음이면 `/office-hours`를 중심으로 학습 경로를 다시 잡으세요.
+운영자면 team mode와 OpenClaw 경로를 먼저 확인하세요.
