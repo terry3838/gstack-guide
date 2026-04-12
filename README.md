@@ -103,26 +103,40 @@ OpenClaw 사용자라면:
 ## 자동 동기화 상태
 
 - origin repo: `gstack`
-- latest source commit: `dbd7aee5b6b5`
-- sync mode: `no-change`
-- 영향 분류: 일반 변경
+- latest source commit: `c6e6a21d1a9a`
+- sync mode: `update`
+- 영향 분류: 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 
 ### 이번 반영 포인트
 
-이번 싸이클에서는 origin 변경이 없어 guide 본문은 유지했고, 동기화 기준점만 재확인했습니다.
+origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: 설치/설정, CLI/명령어, 문서 구조, 테스트/검증.
 
 ### 최근 upstream 커밋
 
-- `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
-- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
-- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
-- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
-- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
-- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
+- `c6e6a21 refactor: AI slop reduction with cross-model quality review (v0.16.3.0) (#941)`
 
 ### 변경 파일 샘플
 
-- 이번 싸이클에서는 신규 변경 파일이 없습니다.
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `VERSION`
+- `bin/gstack-global-discover.ts`
+- `browse/src/browser-manager.ts`
+- `browse/src/cdp-inspector.ts`
+- `browse/src/cli.ts`
+- `browse/src/content-security.ts`
+- `browse/src/error-handling.ts`
+- `browse/src/meta-commands.ts`
+- `browse/src/read-commands.ts`
+- `browse/src/server.ts`
+- `browse/src/sidebar-agent.ts`
+- `browse/src/snapshot.ts`
+- `browse/src/write-commands.ts`
+- `browse/test/error-handling.test.ts`
+- `docs/designs/SLOP_SCAN_FOR_REVIEW_SHIP.md`
+- `extension/content.js`
+- `extension/inspector.js`
+- `package.json`
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->

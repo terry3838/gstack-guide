@@ -2,9 +2,9 @@
 
 - source repo: `https://github.com/garrytan/gstack.git`
 - previous synced commit: `dbd7aee5b6b5bb41b17ae7747568e2fda8a91d77`
-- current synced commit: `dbd7aee5b6b5bb41b17ae7747568e2fda8a91d77`
-- sync mode: `no-change`
-- impact labels: 일반 변경
+- current synced commit: `c6e6a21d1a9a58e771403260ff6a134898f2dd02`
+- sync mode: `update`
+- impact labels: 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,14 +13,7 @@
 
 ## recent upstream commits
 
-- `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
-- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
-- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
-- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
-- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
-- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
-- `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
-- `8ca950f feat: content security — 4-layer prompt injection defense for pair-agent (#815)`
+- `c6e6a21 refactor: AI slop reduction with cross-model quality review (v0.16.3.0) (#941)`
 
 ## top-level structure
 
@@ -47,7 +40,26 @@
 
 ## changed files
 
-- 변경 파일 없음
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `VERSION`
+- `bin/gstack-global-discover.ts`
+- `browse/src/browser-manager.ts`
+- `browse/src/cdp-inspector.ts`
+- `browse/src/cli.ts`
+- `browse/src/content-security.ts`
+- `browse/src/error-handling.ts`
+- `browse/src/meta-commands.ts`
+- `browse/src/read-commands.ts`
+- `browse/src/server.ts`
+- `browse/src/sidebar-agent.ts`
+- `browse/src/snapshot.ts`
+- `browse/src/write-commands.ts`
+- `browse/test/error-handling.test.ts`
+- `docs/designs/SLOP_SCAN_FOR_REVIEW_SHIP.md`
+- `extension/content.js`
+- `extension/inspector.js`
+- `package.json`
 
 ## README excerpt
 

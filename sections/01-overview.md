@@ -1,36 +1,71 @@
 # gstack 개요
 
-## repo 역할
+## 원본 저장소 역할
 
 - repo: `gstack`
 - source: `https://github.com/garrytan/gstack.git`
-- version basis: `0.16.2.0`
-- latest synced commit: `dbd7aee5b6b5`
+- latest synced commit: `c6e6a21d1a9a`
+- summary: > "I don't think I've typed like a line of code probably since December, basically, which is an extremely large change." — [Andrej Karpathy](https://fortune.com/2026/03/21/andrej-karpathy-openai-cofounder-ai-agents-coding-state-of-psychosis-openclaw/), No Priors podcast, March 2026
 
-## 왜 frontdoor를 다시 썼나
+## 이번 싸이클 판단
 
-기존 가이드는 멀티호스트와 browser/ship 쪽은 잘 잡았지만,
-현재 upstream이 더 강하게 미는 세 가지를 frontdoor에서 충분히 전면화하지 못했어요.
+- sync mode: `update`
+- impact labels: 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
+- 판단: origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: 설치/설정, CLI/명령어, 문서 구조, 테스트/검증.
 
-1. `/office-hours` 중심 시작 루프
-2. OpenClaw 연동과 Native OpenClaw Skills
-3. team mode와 멀티호스트 설치
+## 최근 upstream 커밋
 
-## 지금 기준의 핵심 메시지
+- `c6e6a21 refactor: AI slop reduction with cross-model quality review (v0.16.3.0) (#941)`
 
-- gstack는 workflow system이에요
-- 시작점은 `/office-hours`예요
-- OpenClaw와 붙는 방법론 층으로 읽는 게 맞아요
-- `/document-release`까지 포함한 release/doc sync 루프가 중요해졌어요
+## 확인한 원본 구조
 
-## 학습자가 먼저 볼 것
+- `.env.example`
+- `actionlint.yaml`
+- `agents/`
+- `AGENTS.md`
+- `ARCHITECTURE.md`
+- `autoplan/`
+- `benchmark/`
+- `bin/`
+- `browse/`
+- `BROWSER.md`
+- `bun.lock`
+- `canary/`
+- `careful/`
+- `CHANGELOG.md`
+- `checkpoint/`
+- `CLAUDE.md`
+- `codex/`
+- `conductor.json`
+- `connect-chrome/`
+- `contrib/`
 
-- `README.md`
-- `01-installation-and-setup.md`
-- `02-sprint-workflow.md`
-- `03-skill-catalog.md`
+## guide 업데이트 포인트
 
-## 다음 행동
+- README 관리 블록 갱신
+- `UPSTREAM-SNAPSHOT.md` 갱신
+- `SYNC-LOG.md` 갱신
+- 개요 문서 재작성
 
-처음이면 `/office-hours`를 중심으로 학습 경로를 다시 잡으세요.
-운영자면 team mode와 OpenClaw 경로를 먼저 확인하세요.
+## 변경 파일 샘플
+
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `VERSION`
+- `bin/gstack-global-discover.ts`
+- `browse/src/browser-manager.ts`
+- `browse/src/cdp-inspector.ts`
+- `browse/src/cli.ts`
+- `browse/src/content-security.ts`
+- `browse/src/error-handling.ts`
+- `browse/src/meta-commands.ts`
+- `browse/src/read-commands.ts`
+- `browse/src/server.ts`
+- `browse/src/sidebar-agent.ts`
+- `browse/src/snapshot.ts`
+- `browse/src/write-commands.ts`
+- `browse/test/error-handling.test.ts`
+- `docs/designs/SLOP_SCAN_FOR_REVIEW_SHIP.md`
+- `extension/content.js`
+- `extension/inspector.js`
+- `package.json`
