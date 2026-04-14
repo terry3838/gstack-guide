@@ -2,9 +2,9 @@
 
 - source repo: `https://github.com/garrytan/gstack.git`
 - previous synced commit: `c6e6a21d1a9a58e771403260ff6a134898f2dd02`
-- current synced commit: `c6e6a21d1a9a58e771403260ff6a134898f2dd02`
-- sync mode: `no-change`
-- impact labels: 일반 변경
+- current synced commit: `7e96fe299b085010fb2e34d9c4fbfc7e44b617e1`
+- sync mode: `update`
+- impact labels: 설치/설정, CLI/명령어, 테스트/검증
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,14 +13,7 @@
 
 ## recent upstream commits
 
-- `c6e6a21 refactor: AI slop reduction with cross-model quality review (v0.16.3.0) (#941)`
-- `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
-- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
-- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
-- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
-- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
-- `6cc094c fix: pair-agent tunnel drops after 15s (v0.15.15.1) (#868)`
-- `47b3ee2 fix: auto-symlink into ~/.claude/skills/ when cloned elsewhere (#865)`
+- `7e96fe2 fix: security wave 3 — 12 fixes, 7 contributors (v0.16.4.0) (#988)`
 
 ## top-level structure
 
@@ -47,7 +40,25 @@
 
 ## changed files
 
-- 변경 파일 없음
+- `.github/docker/Dockerfile.ci`
+- `CHANGELOG.md`
+- `VERSION`
+- `bin/gstack-learnings-log`
+- `bin/gstack-learnings-search`
+- `bin/gstack-settings-hook`
+- `bin/gstack-team-init`
+- `browse/src/audit.ts`
+- `browse/src/browser-manager.ts`
+- `browse/src/config.ts`
+- `browse/src/cookie-import-browser.ts`
+- `browse/src/path-security.ts`
+- `browse/src/read-commands.ts`
+- `browse/src/server.ts`
+- `browse/src/url-validation.ts`
+- `browse/src/write-commands.ts`
+- `browse/test/commands.test.ts`
+- `design/src/session.ts`
+- `setup`
 
 ## README excerpt
 
