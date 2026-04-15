@@ -103,39 +103,40 @@ OpenClaw 사용자라면:
 ## 자동 동기화 상태
 
 - origin repo: `gstack`
-- latest source commit: `7e96fe299b08`
+- latest source commit: `230006726732`
 - sync mode: `update`
-- 영향 분류: 설치/설정, CLI/명령어, 테스트/검증
+- 영향 분류: 일반 변경
 
 ### 이번 반영 포인트
 
-origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: 설치/설정, CLI/명령어, 테스트/검증.
+origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: 일반 변경.
 
 ### 최근 upstream 커밋
 
-- `7e96fe2 fix: security wave 3 — 12 fixes, 7 contributors (v0.16.4.0) (#988)`
+- `2300067 feat: UX behavioral foundations + ux-audit command (v0.17.0.0) (#1000)`
 
 ### 변경 파일 샘플
 
-- `.github/docker/Dockerfile.ci`
+- `ARCHITECTURE.md`
 - `CHANGELOG.md`
+- `CLAUDE.md`
+- `SKILL.md`
 - `VERSION`
-- `bin/gstack-learnings-log`
-- `bin/gstack-learnings-search`
-- `bin/gstack-settings-hook`
-- `bin/gstack-team-init`
-- `browse/src/audit.ts`
-- `browse/src/browser-manager.ts`
-- `browse/src/config.ts`
-- `browse/src/cookie-import-browser.ts`
-- `browse/src/path-security.ts`
-- `browse/src/read-commands.ts`
-- `browse/src/server.ts`
-- `browse/src/url-validation.ts`
-- `browse/src/write-commands.ts`
-- `browse/test/commands.test.ts`
-- `design/src/session.ts`
-- `setup`
+- `browse/SKILL.md`
+- `browse/src/commands.ts`
+- `browse/src/meta-commands.ts`
+- `browse/src/snapshot.ts`
+- `design-html/SKILL.md`
+- `design-html/SKILL.md.tmpl`
+- `design-review/SKILL.md`
+- `design-review/SKILL.md.tmpl`
+- `design-shotgun/SKILL.md`
+- `design-shotgun/SKILL.md.tmpl`
+- `plan-design-review/SKILL.md`
+- `plan-design-review/SKILL.md.tmpl`
+- `scripts/gen-skill-docs.ts`
+- `scripts/resolvers/design.ts`
+- `scripts/resolvers/index.ts`
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->
