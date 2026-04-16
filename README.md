@@ -104,39 +104,25 @@ OpenClaw 사용자라면:
 
 - origin repo: `gstack`
 - latest source commit: `230006726732`
-- sync mode: `update`
+- sync mode: `no-change`
 - 영향 분류: 일반 변경
 
 ### 이번 반영 포인트
 
-origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: 일반 변경.
+이번 싸이클에서는 origin 변경이 없어 guide 본문은 유지했고, 동기화 기준점만 재확인했습니다.
 
 ### 최근 upstream 커밋
 
 - `2300067 feat: UX behavioral foundations + ux-audit command (v0.17.0.0) (#1000)`
+- `7e96fe2 fix: security wave 3 — 12 fixes, 7 contributors (v0.16.4.0) (#988)`
+- `c6e6a21 refactor: AI slop reduction with cross-model quality review (v0.16.3.0) (#941)`
+- `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
+- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
+- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
 
 ### 변경 파일 샘플
 
-- `ARCHITECTURE.md`
-- `CHANGELOG.md`
-- `CLAUDE.md`
-- `SKILL.md`
-- `VERSION`
-- `browse/SKILL.md`
-- `browse/src/commands.ts`
-- `browse/src/meta-commands.ts`
-- `browse/src/snapshot.ts`
-- `design-html/SKILL.md`
-- `design-html/SKILL.md.tmpl`
-- `design-review/SKILL.md`
-- `design-review/SKILL.md.tmpl`
-- `design-shotgun/SKILL.md`
-- `design-shotgun/SKILL.md.tmpl`
-- `plan-design-review/SKILL.md`
-- `plan-design-review/SKILL.md.tmpl`
-- `scripts/gen-skill-docs.ts`
-- `scripts/resolvers/design.ts`
-- `scripts/resolvers/index.ts`
+- 이번 싸이클에서는 신규 변경 파일이 없습니다.
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->

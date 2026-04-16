@@ -1,9 +1,9 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `7e96fe299b085010fb2e34d9c4fbfc7e44b617e1`
+- previous synced commit: `23000672673224f04a5d0cb8d692356069c95f6a`
 - current synced commit: `23000672673224f04a5d0cb8d692356069c95f6a`
-- sync mode: `update`
+- sync mode: `no-change`
 - impact labels: 일반 변경
 - guide repo: `gstack-guide`
 
@@ -14,6 +14,13 @@
 ## recent upstream commits
 
 - `2300067 feat: UX behavioral foundations + ux-audit command (v0.17.0.0) (#1000)`
+- `7e96fe2 fix: security wave 3 — 12 fixes, 7 contributors (v0.16.4.0) (#988)`
+- `c6e6a21 refactor: AI slop reduction with cross-model quality review (v0.16.3.0) (#941)`
+- `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
+- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
+- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
+- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
+- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
 
 ## top-level structure
 
@@ -40,26 +47,7 @@
 
 ## changed files
 
-- `ARCHITECTURE.md`
-- `CHANGELOG.md`
-- `CLAUDE.md`
-- `SKILL.md`
-- `VERSION`
-- `browse/SKILL.md`
-- `browse/src/commands.ts`
-- `browse/src/meta-commands.ts`
-- `browse/src/snapshot.ts`
-- `design-html/SKILL.md`
-- `design-html/SKILL.md.tmpl`
-- `design-review/SKILL.md`
-- `design-review/SKILL.md.tmpl`
-- `design-shotgun/SKILL.md`
-- `design-shotgun/SKILL.md.tmpl`
-- `plan-design-review/SKILL.md`
-- `plan-design-review/SKILL.md.tmpl`
-- `scripts/gen-skill-docs.ts`
-- `scripts/resolvers/design.ts`
-- `scripts/resolvers/index.ts`
+- 변경 파일 없음
 
 ## README excerpt
 
