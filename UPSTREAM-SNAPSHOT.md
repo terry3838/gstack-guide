@@ -2,9 +2,9 @@
 
 - source repo: `https://github.com/garrytan/gstack.git`
 - previous synced commit: `23000672673224f04a5d0cb8d692356069c95f6a`
-- current synced commit: `23000672673224f04a5d0cb8d692356069c95f6a`
-- sync mode: `no-change`
-- impact labels: 일반 변경
+- current synced commit: `822e843a60c6c13508f70dd1ffcc163e8fc79be5`
+- sync mode: `update`
+- impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,14 +13,11 @@
 
 ## recent upstream commits
 
-- `2300067 feat: UX behavioral foundations + ux-audit command (v0.17.0.0) (#1000)`
-- `7e96fe2 fix: security wave 3 — 12 fixes, 7 contributors (v0.16.4.0) (#988)`
-- `c6e6a21 refactor: AI slop reduction with cross-model quality review (v0.16.3.0) (#941)`
-- `dbd7aee feat: relationship closing — office-hours adapts to repeat users (v0.16.2.0) (#937)`
-- `a7593d7 fix: cookie picker auth token leak (v0.15.17.0) (#904)`
-- `b73f364 feat: browser data platform for AI agents (v0.16.0.0) (#907)`
-- `9d34baa fix: gstack-slug produces deterministic slugs across sessions (#897)`
-- `1868636 refactor: extract TabSession for per-tab state isolation (v0.15.16.0) (#873)`
+- `822e843 fix: headed browser auto-shutdown + disconnect cleanup (v0.18.1.0) (#1025)`
+- `cc42f14 docs: gstack compact design doc (tabled pending Anthropic API) (#1027)`
+- `0cc830b fix: avoid tilde-in-assignment to silence Claude Code permission prompts (#993)`
+- `6a785c5 fix: ngrok Windows build + close CI error-swallowing gap (v0.18.0.1) (#1024)`
+- `b805aa0 feat: Confusion Protocol, Hermes + GBrain hosts, brain-first resolver (v0.18.0.0) (#1005)`
 
 ## top-level structure
 
@@ -47,7 +44,26 @@
 
 ## changed files
 
-- 변경 파일 없음
+- `.gitignore`
+- `ARCHITECTURE.md`
+- `CHANGELOG.md`
+- `CLAUDE.md`
+- `README.md`
+- `SKILL.md`
+- `SKILL.md.tmpl`
+- `TODOS.md`
+- `VERSION`
+- `autoplan/SKILL.md`
+- `autoplan/SKILL.md.tmpl`
+- `benchmark/SKILL.md`
+- `benchmark/SKILL.md.tmpl`
+- `bin/gstack-settings-hook`
+- `browse/SKILL.md`
+- `browse/SKILL.md.tmpl`
+- `browse/scripts/build-node-server.sh`
+- `browse/src/browser-manager.ts`
+- `browse/src/cli.ts`
+- `browse/src/server.ts`
 
 ## README excerpt
 
@@ -164,7 +180,7 @@ These are conversational skills. Your OpenClaw agent runs them directly via chat
 
 ### Other AI Agents
 
-gstack works on 8 AI coding agents, not just Claude. Setup auto-detects which
+gstack works on 10 AI coding agents, not just Claude. Setup auto-detects which
 agents you have installed:
 
 ```bash
