@@ -103,44 +103,41 @@ OpenClaw 사용자라면:
 ## 자동 동기화 상태
 
 - origin repo: `gstack`
-- latest source commit: `822e843a60c6`
+- latest source commit: `1211b6b40bec`
 - sync mode: `update`
-- 영향 분류: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
+- 영향 분류: 설치/설정, 테스트/검증
 
 ### 이번 반영 포인트
 
-origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증.
+origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: 설치/설정, 테스트/검증.
 
 ### 최근 upstream 커밋
 
-- `822e843 fix: headed browser auto-shutdown + disconnect cleanup (v0.18.1.0) (#1025)`
-- `cc42f14 docs: gstack compact design doc (tabled pending Anthropic API) (#1027)`
-- `0cc830b fix: avoid tilde-in-assignment to silence Claude Code permission prompts (#993)`
-- `6a785c5 fix: ngrok Windows build + close CI error-swallowing gap (v0.18.0.1) (#1024)`
-- `b805aa0 feat: Confusion Protocol, Hermes + GBrain hosts, brain-first resolver (v0.18.0.0) (#1005)`
+- `1211b6b community wave: 6 PRs + hardening (v0.18.1.0) (#1028)`
+- `b3eaffc feat: context rot defense for /ship — subagent isolation + clean step numbering (v0.18.1.0) (#1030)`
 
 ### 변경 파일 샘플
 
+- `.github/docker/Dockerfile.ci`
 - `.gitignore`
-- `ARCHITECTURE.md`
 - `CHANGELOG.md`
 - `CLAUDE.md`
-- `README.md`
-- `SKILL.md`
-- `SKILL.md.tmpl`
 - `TODOS.md`
 - `VERSION`
-- `autoplan/SKILL.md`
-- `autoplan/SKILL.md.tmpl`
-- `benchmark/SKILL.md`
-- `benchmark/SKILL.md.tmpl`
-- `bin/gstack-settings-hook`
-- `browse/SKILL.md`
-- `browse/SKILL.md.tmpl`
-- `browse/scripts/build-node-server.sh`
-- `browse/src/browser-manager.ts`
-- `browse/src/cli.ts`
+- `browse/src/cookie-import-browser.ts`
+- `browse/src/cookie-picker-routes.ts`
 - `browse/src/server.ts`
+- `browse/src/write-commands.ts`
+- `browse/test/cookie-picker-routes.test.ts`
+- `browse/test/watchdog.test.ts`
+- `design-consultation/SKILL.md`
+- `design-consultation/SKILL.md.tmpl`
+- `design-html/SKILL.md`
+- `design-review/SKILL.md`
+- `design-review/SKILL.md.tmpl`
+- `design-shotgun/SKILL.md`
+- `design-shotgun/SKILL.md.tmpl`
+- `hosts/opencode.ts`
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->

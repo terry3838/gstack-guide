@@ -1,10 +1,10 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `23000672673224f04a5d0cb8d692356069c95f6a`
-- current synced commit: `822e843a60c6c13508f70dd1ffcc163e8fc79be5`
+- previous synced commit: `822e843a60c6c13508f70dd1ffcc163e8fc79be5`
+- current synced commit: `1211b6b40becb684eaf29b0f30a650a8a9b222a5`
 - sync mode: `update`
-- impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
+- impact labels: 설치/설정, 테스트/검증
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,11 +13,8 @@
 
 ## recent upstream commits
 
-- `822e843 fix: headed browser auto-shutdown + disconnect cleanup (v0.18.1.0) (#1025)`
-- `cc42f14 docs: gstack compact design doc (tabled pending Anthropic API) (#1027)`
-- `0cc830b fix: avoid tilde-in-assignment to silence Claude Code permission prompts (#993)`
-- `6a785c5 fix: ngrok Windows build + close CI error-swallowing gap (v0.18.0.1) (#1024)`
-- `b805aa0 feat: Confusion Protocol, Hermes + GBrain hosts, brain-first resolver (v0.18.0.0) (#1005)`
+- `1211b6b community wave: 6 PRs + hardening (v0.18.1.0) (#1028)`
+- `b3eaffc feat: context rot defense for /ship — subagent isolation + clean step numbering (v0.18.1.0) (#1030)`
 
 ## top-level structure
 
@@ -44,26 +41,26 @@
 
 ## changed files
 
+- `.github/docker/Dockerfile.ci`
 - `.gitignore`
-- `ARCHITECTURE.md`
 - `CHANGELOG.md`
 - `CLAUDE.md`
-- `README.md`
-- `SKILL.md`
-- `SKILL.md.tmpl`
 - `TODOS.md`
 - `VERSION`
-- `autoplan/SKILL.md`
-- `autoplan/SKILL.md.tmpl`
-- `benchmark/SKILL.md`
-- `benchmark/SKILL.md.tmpl`
-- `bin/gstack-settings-hook`
-- `browse/SKILL.md`
-- `browse/SKILL.md.tmpl`
-- `browse/scripts/build-node-server.sh`
-- `browse/src/browser-manager.ts`
-- `browse/src/cli.ts`
+- `browse/src/cookie-import-browser.ts`
+- `browse/src/cookie-picker-routes.ts`
 - `browse/src/server.ts`
+- `browse/src/write-commands.ts`
+- `browse/test/cookie-picker-routes.test.ts`
+- `browse/test/watchdog.test.ts`
+- `design-consultation/SKILL.md`
+- `design-consultation/SKILL.md.tmpl`
+- `design-html/SKILL.md`
+- `design-review/SKILL.md`
+- `design-review/SKILL.md.tmpl`
+- `design-shotgun/SKILL.md`
+- `design-shotgun/SKILL.md.tmpl`
+- `hosts/opencode.ts`
 
 ## README excerpt
 
