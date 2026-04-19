@@ -1,10 +1,10 @@
 # Upstream Snapshot — gstack
 
 - source repo: `https://github.com/garrytan/gstack.git`
-- previous synced commit: `822e843a60c6c13508f70dd1ffcc163e8fc79be5`
-- current synced commit: `1211b6b40becb684eaf29b0f30a650a8a9b222a5`
+- previous synced commit: `1211b6b40becb684eaf29b0f30a650a8a9b222a5`
+- current synced commit: `8ee16b867ba739e67d25e1354b7f3fb56e3193b4`
 - sync mode: `update`
-- impact labels: 설치/설정, 테스트/검증
+- impact labels: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
 - guide repo: `gstack-guide`
 
 ## 원본 한줄 요약
@@ -13,8 +13,12 @@
 
 ## recent upstream commits
 
-- `1211b6b community wave: 6 PRs + hardening (v0.18.1.0) (#1028)`
-- `b3eaffc feat: context rot defense for /ship — subagent isolation + clean step numbering (v0.18.1.0) (#1030)`
+- `8ee16b8 feat: mode-posture energy fix for /plan-ceo-review and /office-hours (v1.1.2.0) (#1065)`
+- `e3c961d fix(ship): detect + repair VERSION/package.json drift in Step 12 (v1.1.1.0) (#1063)`
+- `c15b805 feat(browse): Puppeteer parity — load-html, screenshot --selector, viewport --scale, file:// (v1.1.0.0) (#1062)`
+- `4d2c8d9 fix: remove hardcoded author emails from throughput script`
+- `0a803f9 feat: gstack v1 — simpler prompts + real LOC receipts (v1.0.0.0) (#1039)`
+- `9ec4ab7 codex + Apple Silicon hardening wave (v0.18.4.0) (#1056)`
 
 ## top-level structure
 
@@ -43,24 +47,24 @@
 
 - `.github/docker/Dockerfile.ci`
 - `.gitignore`
+- `BROWSER.md`
 - `CHANGELOG.md`
 - `CLAUDE.md`
+- `CONTRIBUTING.md`
+- `README.md`
+- `SKILL.md`
 - `TODOS.md`
 - `VERSION`
-- `browse/src/cookie-import-browser.ts`
-- `browse/src/cookie-picker-routes.ts`
-- `browse/src/server.ts`
-- `browse/src/write-commands.ts`
-- `browse/test/cookie-picker-routes.test.ts`
-- `browse/test/watchdog.test.ts`
-- `design-consultation/SKILL.md`
-- `design-consultation/SKILL.md.tmpl`
-- `design-html/SKILL.md`
-- `design-review/SKILL.md`
-- `design-review/SKILL.md.tmpl`
-- `design-shotgun/SKILL.md`
-- `design-shotgun/SKILL.md.tmpl`
-- `hosts/opencode.ts`
+- `autoplan/SKILL.md`
+- `autoplan/SKILL.md.tmpl`
+- `benchmark/SKILL.md`
+- `bin/gstack-builder-profile`
+- `bin/gstack-codex-probe`
+- `bin/gstack-config`
+- `bin/gstack-developer-profile`
+- `bin/gstack-question-log`
+- `bin/gstack-question-preference`
+- `browse/SKILL.md`
 
 ## README excerpt
 
@@ -73,7 +77,9 @@ When I heard Karpathy say this, I wanted to find out how. How does one person sh
 
 I'm [Garry Tan](https://x.com/garrytan), President & CEO of [Y Combinator](https://www.ycombinator.com/). I've worked with thousands of startups — Coinbase, Instacart, Rippling — when they were one or two people in a garage. Before YC, I was one of the first eng/PM/designers at Palantir, cofounded Posterous (sold to Twitter), and built Bookface, YC's internal social network.
 
-**gstack is my answer.** I've been building products for twenty years, and right now I'm shipping more code than I ever have. In the last 60 days: **600,000+ lines of production code** (35% tests), **10,000-20,000 lines per day**, part-time, while running YC full-time. Here's my last `/retro` across 3 projects: **140,751 lines added, 362 commits, ~115k net LOC** in one week.
+**gstack is my answer.** I've been building products for twenty years, and right now I'm shipping more products than I ever have. In the last 60 days: 3 production services, 40+ shipped features, part-time, while running YC full-time. On logical code change — not raw LOC, which AI inflates — my 2026 run rate is **~810× my 2013 pace** (11,417 vs 14 logical lines/day). Year-to-date (through April 18), 2026 has already produced **240× the entire 2013 year**. Measured across 40 public + private `garrytan/*` repos including Bookface, after excluding one demo repo. AI wrote most of it. The point isn't who typed it, it's what shipped.
+
+> The LOC critics aren't wrong that raw line counts inflate with AI. They are wrong that normalized-for-inflation, I'm less productive. I'm more productive, by a lot. Full methodology, caveats, and reproduction script: **[On the LOC Controversy](docs/ON_THE_LOC_CONTROVERSY.md)**.
 
 **2026 — 1,237 contributions and counting:**
 
@@ -117,26 +123,15 @@ Open Claude Code and paste this. Claude does the rest.
 
 ### Step 2: Team mode — auto-update for shared repos (recommended)
 
-Every developer installs globally, updates happen automatically:
+From inside your repo, paste this. Switches you to team mode, bootstraps the repo so teammates get gstack automatically, and commits the change:
 
 ```bash
-cd ~/.claude/skills/gstack && ./setup --team
-```
-
-Then bootstrap your repo so teammates get it:
-
-```bash
-cd <your-repo>
-~/.claude/skills/gstack/bin/gstack-team-init required  # or: optional
-git add .claude/ CLAUDE.md && git commit -m "require gstack for AI-assisted work"
+(cd ~/.claude/skills/gstack && ./setup --team) && ~/.claude/skills/gstack/bin/gstack-team-init required && git add .claude/ CLAUDE.md && git commit -m "require gstack for AI-assisted work"
 ```
 
 No vendored files in your repo, no version drift, no manual upgrades. Every Claude Code session starts with a fast auto-update check (throttled to once/hour, network-failure-safe, completely silent).
 
-> **Contributing or need full history?** The commands above use `--depth 1` for a fast install. If you plan to contribute or need full git history, do a full clone instead:
-> ```bash
-> git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack
-> ```
+Swap `required` for `optional` if you'd rather nudge teammates than block them.
 
 ### OpenClaw
 
@@ -184,4 +179,14 @@ agents you have installed:
 git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack
 cd ~/gstack && ./setup
 ```
+
+Or target a specific agent with `./setup --host <name>`:
+
+| Agent | Flag | Skills install to |
+|-------|------|-------------------|
+| OpenAI Codex CLI | `--host codex` | `~/.codex/skills/gstack-*/` |
+| OpenCode | `--host opencode` | `~/.config/opencode/skills/gstack-*/` |
+| Cursor | `--host cursor` | `~/.cursor/skills/gstack-*/` |
+| Factory Droid | `--host factory` | `~/.factory/skills/gstack-*/` |
+| Slate | `--host slate` | `~/.slate/skills/gstack-*/` |
 ```
