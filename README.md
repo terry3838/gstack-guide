@@ -104,12 +104,12 @@ OpenClaw 사용자라면:
 
 - origin repo: `gstack`
 - latest source commit: `8ee16b867ba7`
-- sync mode: `update`
-- 영향 분류: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증
+- sync mode: `no-change`
+- 영향 분류: 일반 변경
 
 ### 이번 반영 포인트
 
-origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽고 반영했습니다. 핵심 영향 영역: README/소개, 설치/설정, CLI/명령어, 문서 구조, 테스트/검증.
+이번 싸이클에서는 origin 변경이 없어 guide 본문은 유지했고, 동기화 기준점만 재확인했습니다.
 
 ### 최근 upstream 커밋
 
@@ -122,26 +122,7 @@ origin 변경 파일을 기준으로 guide 문서의 관련 섹션을 다시 읽
 
 ### 변경 파일 샘플
 
-- `.github/docker/Dockerfile.ci`
-- `.gitignore`
-- `BROWSER.md`
-- `CHANGELOG.md`
-- `CLAUDE.md`
-- `CONTRIBUTING.md`
-- `README.md`
-- `SKILL.md`
-- `TODOS.md`
-- `VERSION`
-- `autoplan/SKILL.md`
-- `autoplan/SKILL.md.tmpl`
-- `benchmark/SKILL.md`
-- `bin/gstack-builder-profile`
-- `bin/gstack-codex-probe`
-- `bin/gstack-config`
-- `bin/gstack-developer-profile`
-- `bin/gstack-question-log`
-- `bin/gstack-question-preference`
-- `browse/SKILL.md`
+- 이번 싸이클에서는 신규 변경 파일이 없습니다.
 
 > 이 블록은 guide sync가 자동 갱신합니다.
 <!-- GUIDE_SYNC:END -->
